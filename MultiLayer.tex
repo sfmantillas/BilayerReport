@@ -150,7 +150,7 @@
 
 \section*{Multilayer graphene}
 
-\tableofcontents
+%\tableofcontents
 
 
 
@@ -186,9 +186,8 @@ where $[\hat{\mathbf{n}}_{m}]=
 \end{itemize}
 The potential is given by
 \begin{equation}
-V_{\mathbf{x}} = 
-V_{0}
-e^{-r^{2}/a^{2}}
+V_{\mathbf{r}} = 
+V_{0}e^{-r^{2}/a^{2}}
 \end{equation}
 with $V_{0}$ the intensity of the Gaussian potential and $a$ sets the spreading of the potential in the reciprocal space. Its Fourier transform is expressed as
 \begin{equation}
@@ -223,8 +222,6 @@ e^{-a_{\mathcal{K}}^{2}\left( \tfrac{k}{\mathcal{K}} \right)^{2}}
 \psi_{\mathbf{k   ,\sigma }}^{\textcolor{white}{\dagger}}
 \psi_{\mathbf{k'  ,\sigma'}}^{\textcolor{white}{\dagger}}.
 \end{eqnarray}
-
-
 
 \section{Restricted Hilbert space for $\mathbf{Q}=0$ excitons and Spin basis}
 By restricting the Hilbert space of the system to the singly-occupied sites in the momentum lattice, we can build the spin operators 
@@ -278,7 +275,7 @@ The singly-occupied condition is forced by the constrain
 \begin{split}
 s^{0}_{\mathbf{k }} &= \sum_{\sigma \sigma'} 
 \psi_{\mathbf{k ,\sigma }}^{\textcolor{black}{\dagger}}
-\tau^{0}_{\sigma \sigma'}
+\sigma^{0}_{\sigma \sigma'}
 \psi_{\mathbf{k ,\sigma'}}^{\textcolor{white}{\dagger}} =
 \sum_{\sigma \sigma'} 
 \psi_{\mathbf{k ,\sigma }}^{\textcolor{black}{\dagger}}
@@ -294,19 +291,28 @@ n_{\mathbf{k ,\sigma }} =
 \end{equation}
 because the subspace corresponds to singly-occupied sites in the momentum lattice. 
 
-The following steps show how the four-fermion term in the interacion Hamiltonian can be expressed under the singly-occupied constrain. The completeness relation of the Pauli matrices
+The following steps show how the four-fermion term in the interacion Hamiltonian can be expressed under the singly-occupied constrain. 
+\begin{equation}
+\psi_{\mathbf{k ,\tau'}}^{\textcolor{black}{\dagger}}
+\psi_{\mathbf{k ,\tau }}^{\textcolor{white}{\dagger}} = 
+\frac{1}{2}
+\sum_{\mu=0}^{3} 
+\sigma^{\mu }_{\tau ,\tau'}s^{\mu }_{\mathbf{k }}.
+\end{equation}
+The completeness relation of the Pauli matrices
 \begin{equation}
 \sum_{\mu=0}^{3} 
 \sigma^{\mu }_{\sigma \sigma'}\sigma^{\mu }_{\tau \tau'} =  
-2 \delta_{\sigma \tau'} \delta_{\sigma'\tau }
+2 \delta_{\sigma \tau'} \delta_{\sigma'\tau },
 \end{equation}
-Trace of bilinear
+and the trace of Pauli matrices bilinears 
 \begin{equation}
 \mathrm{tr}\left( \sigma^{\mu }\sigma^{\mu'} \right) = 
 \sum_{\tau ,\tau'}
 \sigma^{\mu }_{\tau \tau'}\sigma^{\mu'}_{\tau'\tau } = 
-2 \delta^{\mu \mu'}
+2 \delta^{\mu \mu'},
 \end{equation}
+are useful to find the inverse relation between fermion bilinears and Pauli matrices
 \begin{equation}
 \begin{split}
 \sum_{\mu=0}^{3} 
@@ -322,18 +328,10 @@ Trace of bilinear
 \psi_{\mathbf{k ,\sigma'}}^{\textcolor{white}{\dagger}} \\ &= 
 2
 \psi_{\mathbf{k ,\tau'}}^{\textcolor{black}{\dagger}}
-\psi_{\mathbf{k ,\tau }}^{\textcolor{white}{\dagger}} 
+\psi_{\mathbf{k ,\tau }}^{\textcolor{white}{\dagger}} .
 \end{split}
 \end{equation}
-
-\begin{equation}
-\psi_{\mathbf{k ,\tau'}}^{\textcolor{black}{\dagger}}
-\psi_{\mathbf{k ,\tau }}^{\textcolor{white}{\dagger}} = 
-\frac{1}{2}
-\sum_{\mu=0}^{3} 
-\tau^{\mu }_{\tau ,\tau'}s^{\mu }_{\mathbf{k }}
-\end{equation}
-
+This one is then useful to express the four-fermion term of the interaction Hamiltonian after some anticommutations to match fermion operators that share the same momentum label, such as follows
 \begin{equation}
 \begin{split}
 \sum_{\tau ,\tau'}&
@@ -385,6 +383,7 @@ s^{\mu }_{\mathbf{k'}}
 \end{split}
 \end{equation}
 
+Consequently, the original fermion Hamiltonian projected onto the singly-occupied is expressed as
 \begin{equation}
 \label{eq:Effective-Heisenberg-Hamiltonian}
 \begin{split}
@@ -403,7 +402,7 @@ E_{\mathrm{UV} }&
 \end{split}
 %}^{Ferromag.\;exchange}
 \end{equation}
-where the first term represents a $m$-folded spin vortex and the second term is an effective ferromagnetic exchange. 
+where the first term represents a $m$-folded spin vortex and the second term is an effective ferromagnetic exchange (see Fig. \ref{fig:Classical-gound-state}). 
 
 \section{Expansion about the non-interacting ground state}
 
@@ -411,7 +410,7 @@ where the first term represents a $m$-folded spin vortex and the second term is 
 \subsection{Band basis and interaction matrix}
 \label{sect:Supp:Band-basis}
 
-\begin{figure*}
+\begin{figure}
 \centering
 \includegraphics[scale=0.8]{1Layer.pdf}
 \includegraphics[scale=0.8]{2Layer.pdf}
@@ -423,7 +422,8 @@ where the first term represents a $m$-folded spin vortex and the second term is 
 \begin{pmatrix}
 \cos(m\phi_{m})	&	\!\!\sin(m\phi_{m})
 \end{pmatrix}$ used to describe the classical ground state of the system.}
-\end{figure*}
+\label{fig:Classical-gound-state}
+\end{figure}
 
 In this section, we provide details of the derivation of Eqs. \eqref{eq:HP-Hamiltonian} to \eqref{eq:Interacion-matrix} starting from Eq. \eqref{eq:Main-Ham}. We begin describing the transfomation from pseudo-spin basis onto band basis. In the band basis $s=\{+,-\}$ the kinetic term is:
 \begin{equation}
@@ -548,9 +548,10 @@ which diagonalizes the kinetic term, and where $\hat{\mathbf{z}}$ is the normal 
 \end{pmatrix}$, and the exchange term is expanded as
 \begin{eqnarray}
 \label{eq:Spin-dot-product-along-k}
-\hat{\mathbf{s}}_{\mathbf{k}_{1}}\!\! \cdot \hat{\mathbf{s}}_{\mathbf{k}_{2}} &=& 
+\hat{\mathbf{s}}_{\mathbf{k}_{1}}\!\! &\cdot& \hat{\mathbf{s}}_{\mathbf{k}_{2}} 
+\\ &=& \nonumber 
 \left( -\hat{s}_{\mathbf{k}_{1}}^{z} \hat{\mathbf{k}_{1}} + \hat{s}_{\mathbf{k }}^{x} \hat{\mathbf{z }} + \hat{s}_{\mathbf{k }}^{y} \hat{\boldsymbol{\varphi}} \right) \cdot \left( -\hat{s}_{\mathbf{k'}}^{z} \hat{\mathbf{k'}} + \hat{s}_{\mathbf{k'}}^{x} \hat{\mathbf{z }} + \hat{s}_{\mathbf{k'}}^{y} \hat{\boldsymbol{\varphi}}'\right) 
-\nonumber \\ &=& 
+\\ &=& \nonumber 
 \left(
 \hat{s}_{\mathbf{k }}^{z}\hat{s}_{\mathbf{k'}}^{z}+ \hat{s}_{\mathbf{k }}^{y}\hat{s}_{\mathbf{k'}}^{y} \right)\cos \phi_{\mathbf{k}\mathbf{k'}} + 
 \hat{s}_{\mathbf{k }}^{x}\hat{s}_{\mathbf{k'}}^{x} 
