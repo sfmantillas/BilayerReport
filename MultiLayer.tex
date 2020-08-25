@@ -192,7 +192,8 @@ V_{0}e^{-r^{2}/a^{2}}
 with $V_{0}$ the intensity of the Gaussian potential and $a$ sets the spreading of the potential in the reciprocal space. Its Fourier transform is expressed as
 \begin{equation}
 V_{\mathbf{k}} = \pi a^{2} V_{0} 
-e^{-(a\mathcal{K})^{2}\left( \tfrac{k}{\mathcal{K}} \right)^{2}}
+e^{-\left(\tfrac{a\mathcal{K}}{2}\right)^{2}
+\left( \tfrac{k}{\mathcal{K}} \right)^{2}}
 \end{equation}
 where $k=|\mathbf{k}|$. It is assumed that $a>2\pi/\mathcal{K}$, i.e., the spreading of the Gaussian should be larger than the lattice parameter $2\pi/\mathcal{K}$. The effect of the potential is then described by two nondimensional quantities:
 \begin{itemize}
@@ -215,7 +216,7 @@ V_{\mathbf{q}}
 \sum_{\mathbf{k }\mathbf{k'}}
 \sum_{\sigma \sigma'} 
 g_{\mathcal{K}}
-e^{-a_{\mathcal{K}}^{2}\left( \tfrac{k}{\mathcal{K}} \right)^{2}}
+e^{-\tfrac{a_{\mathcal{K}}^{2}}{4}\left( \tfrac{k}{\mathcal{K}} \right)^{2}}
 \!\! 
 \psi_{\mathbf{k'+q,\sigma'}}^{\textcolor{black}{\dagger}}
 \psi_{\mathbf{k -q,\sigma }}^{\textcolor{black}{\dagger}}
@@ -223,25 +224,23 @@ e^{-a_{\mathcal{K}}^{2}\left( \tfrac{k}{\mathcal{K}} \right)^{2}}
 \psi_{\mathbf{k'  ,\sigma'}}^{\textcolor{white}{\dagger}}.
 \end{eqnarray}
 
-\section{Restricted Hilbert space for $\mathbf{Q}=0$ excitons and Spin basis}
-By restricting the Hilbert space of the system to the singly-occupied sites in the momentum lattice, we can build the spin operators 
-\begin{equation}
-\mathbf{s}_{\mathbf{k}}=\sum_{\sigma,\sigma'}
-\psi_{\mathbf{k },\sigma}^{\textcolor{black}{\dagger}}
-\boldsymbol{\sigma}_{\sigma\sigma'} 
-\psi_{\mathbf{k },\sigma'}^{\textcolor{white}{\dagger}}
-\end{equation}
-so that we get the new Hamiltonian $\mathcal{P} H \mathcal{P}$ after projecting into the restricted Hilbert space. 
+\section{Restricted Hilbert space for $\mathbf{Q}=0$ excitons and pseudospin basis}
+\begin{figure}
+\centering
+\includegraphics[scale=0.45]{ParabolicVertical.png}
+\caption{$\mathbf{Q}=0$ and $\mathbf{Q}\neq 0$ excitations on the parabolic bands.}
+\label{fig:Q=0-excitons}
+\end{figure}
 
-The fermion bilinears can be expanded in terms of the generators of the Lie algebra of the group $\mathrm{SU}(2)$
+The optical relevant excitations of the system correspond to the $\mathbf{Q}=0$ excitons, as shown in FIG. \ref{fig:Q=0-excitons}. These ones do not modify the momentum label of the electron when it jumps from the valence to the conduction band, and consequently, any interaction between a pair excitons at momenta $\mathbf{k}_{1}$ and $\mathbf{k}_{2}$ should only interchange their momentum labels. In other words, by having into account only $\mathbf{Q}=0$ excitations, the Hilbert space of the system results restricted onto the singly-occupied sites in the momentum lattice. A good operator to describe the singly-occupied constrain is
 \begin{equation}
-\psi_{\mathbf{k ,\tau'}}^{\textcolor{black}{\dagger}}
-\psi_{\mathbf{k ,\tau }}^{\textcolor{white}{\dagger}} = 
-\frac{1}{2}
-\sum_{\mu=0}^{3} 
-s^{\mu }_{\mathbf{k }}\sigma^{\mu }_{\tau \tau'}
+\label{eq:SU(2)-spin-operator}
+s^{\mu}_{\mathbf{k }} = \sum_{\sigma \sigma'} 
+\psi_{\mathbf{k ,\sigma }}^{\textcolor{black}{\dagger}}
+\sigma^{\mu }_{\sigma \sigma'}
+\psi_{\mathbf{k ,\sigma'}}^{\textcolor{white}{\dagger}}.
 \end{equation}
-where $\sigma^{\mu }_{\tau ,\tau'}$ is the component $\tau\tau'$ of the matrices $\sigma^{\mu }$ give by
+where $\sigma^{\mu }_{\sigma  ,\sigma '}$ is the component $\sigma \sigma '$ of the matrix $\sigma^{\mu }$, given by the generators ot the SU(2) Lie algebra, i.e., the Pauli matrices and the identity
 \begin{equation}
 \begin{matrix}
 \sigma^{0}_{\textcolor{white}{,}} = 
@@ -262,15 +261,7 @@ where $\sigma^{\mu }_{\tau ,\tau'}$ is the component $\tau\tau'$ of the matrices
 \end{pmatrix}	&	,
 \end{matrix}
 \end{equation}
-and $s^{\mu }_{\mathbf{k }}$ are the coefficients of the expansion
-\begin{equation}
-s^{\mu}_{\mathbf{k }} = \sum_{\sigma \sigma'} 
-\psi_{\mathbf{k ,\sigma }}^{\textcolor{black}{\dagger}}
-\sigma^{\mu }_{\sigma \sigma'}
-\psi_{\mathbf{k ,\sigma'}}^{\textcolor{white}{\dagger}}
-\end{equation}
-
-The singly-occupied condition is forced by the constrain
+The matrix $\sigma^{0}$ is useful to express the singly-occupied condition as the constrain
 \begin{equation}
 \begin{split}
 s^{0}_{\mathbf{k }} &= \sum_{\sigma \sigma'} 
@@ -286,20 +277,11 @@ s^{0}_{\mathbf{k }} &= \sum_{\sigma \sigma'}
 \psi_{\mathbf{k ,\sigma }}^{\textcolor{white}{\dagger}} =
 \sum_{\sigma } 
 n_{\mathbf{k ,\sigma }} = 
-1,
+1.
 \end{split}
-\end{equation}
-because the subspace corresponds to singly-occupied sites in the momentum lattice. 
+\end{equation}.
 
-The following steps show how the four-fermion term in the interacion Hamiltonian can be expressed under the singly-occupied constrain. 
-\begin{equation}
-\psi_{\mathbf{k ,\tau'}}^{\textcolor{black}{\dagger}}
-\psi_{\mathbf{k ,\tau }}^{\textcolor{white}{\dagger}} = 
-\frac{1}{2}
-\sum_{\mu=0}^{3} 
-\sigma^{\mu }_{\tau ,\tau'}s^{\mu }_{\mathbf{k }}.
-\end{equation}
-The completeness relation of the Pauli matrices
+The following steps show how the four-fermion term in the interacion Hamiltonian can be expressed under the singly-occupied constrain. The completeness relation of the Pauli matrices
 \begin{equation}
 \sum_{\mu=0}^{3} 
 \sigma^{\mu }_{\sigma \sigma'}\sigma^{\mu }_{\tau \tau'} =  
@@ -331,13 +313,26 @@ are useful to find the inverse relation between fermion bilinears and Pauli matr
 \psi_{\mathbf{k ,\tau }}^{\textcolor{white}{\dagger}} .
 \end{split}
 \end{equation}
-This one is then useful to express the four-fermion term of the interaction Hamiltonian after some anticommutations to match fermion operators that share the same momentum label, such as follows
+In this way, the fermion bilinears can then be expanded in terms of the generators of the Lie algebra of the group $\mathrm{SU}(2)$
+\begin{equation}
+\label{eq:SU(2)-expansion-of-fermion-bilinears}
+\psi_{\mathbf{k ,\tau'}}^{\textcolor{black}{\dagger}}
+\psi_{\mathbf{k ,\tau }}^{\textcolor{white}{\dagger}} = 
+\frac{1}{2}
+\sum_{\mu=0}^{3} 
+s^{\mu }_{\mathbf{k }}\sigma^{\mu }_{\tau \tau'},
+\end{equation}
+
+The Eq. \eqref{eq:SU(2)-expansion-of-fermion-bilinears}
+is then useful to express the four-fermion term of the interaction Hamiltonian after some anticommutations to match fermion operators that share the same momentum label, such as follows
 \begin{equation}
 \begin{split}
 \sum_{\tau ,\tau'}&
-\psi_{\mathbf{k ,\tau   }}^{\textcolor{black}{\dagger}}
-\psi_{\mathbf{k ,\tau'  }}^{\textcolor{white}{\dagger}}\psi_{\mathbf{k',\sigma }}^{\textcolor{black}{\dagger}}
-\psi_{\mathbf{k',\sigma'}}^{\textcolor{white}{\dagger}} = \\ &=
+\left(\psi_{\mathbf{k ,\tau   }}^{\textcolor{black}{\dagger}}
+\psi_{\mathbf{k ,\tau'  }}^{\textcolor{white}{\dagger}}\right)
+\left(\psi_{\mathbf{k',\sigma }}^{\textcolor{black}{\dagger}}
+\psi_{\mathbf{k',\sigma'}}^{\textcolor{white}{\dagger}}\right)
+ = \\ &=
 \sum_{\tau ,\tau'}
 \left(
 \frac{1}{2} 
@@ -402,7 +397,7 @@ E_{\mathrm{UV} }&
 \end{split}
 %}^{Ferromag.\;exchange}
 \end{equation}
-where the first term represents a $m$-folded spin vortex and the second term is an effective ferromagnetic exchange (see Fig. \ref{fig:Classical-gound-state}). 
+where the first term represents a $m$-folded spin vortex (see FIG. \ref{fig:Classical-gound-state}) and the second term is an effective ferromagnetic exchange. 
 
 \section{Expansion about the non-interacting ground state}
 
