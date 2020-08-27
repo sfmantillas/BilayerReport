@@ -189,7 +189,7 @@ The potential is given by
 V_{\mathbf{r}} = 
 V_{0}e^{-r^{2}/2a^{2}}
 \end{equation}
-with $V_{0}$ the intensity of the Gaussian potential and $a$ sets the spreading in the real space. Its Fourier transform is
+with $V_{0}$ the intensity of the Gaussian potential and $a$ the spreading in the real space. Its Fourier transform is
 \begin{eqnarray*}
 \nonumber	
 V_{\mathbf{k}} = 2\pi a^{2}V_{0}
@@ -316,7 +316,7 @@ are useful to find the inverse relation between fermion bilinears and Pauli matr
 \sigma^{\mu }_{\tau \tau'}s^{\mu}_{\mathbf{k }} &= 
 \sum_{\mu=0}^{3} \sum_{\sigma \sigma'} 
 \psi_{\mathbf{k ,\sigma }}^{\textcolor{black}{\dagger}}
-\sigma^{\mu }_{\sigma \sigma'}\tau^{\mu }_{\tau ,\tau'}
+\sigma^{\mu }_{\sigma \sigma'}\sigma^{\mu }_{\tau ,\tau'}
 \psi_{\mathbf{k ,\sigma'}}^{\textcolor{white}{\dagger}} \\ &= 
 2
 \sum_{\sigma \sigma'} 
@@ -633,42 +633,51 @@ b_{\mathbf{k'}}^{\textcolor{white}{\dagger}}
 \end{equation}
 
 The resulting bosonic Hamiltonian after applying the HP transformations is:
-\begin{equation}
+\begin{eqnarray}
 \label{eq:Supp:HP-Hamiltonian}
-\begin{split}
-&H_{HP} = \sum_{\mathbf{k}} 
+\nonumber && \!\!\!\!\!\!\! 
+H_{HP} = \sum_{\mathbf{k}} 
 2 E_{\mathrm{UV} }
 \left(\frac{|\mathbf{k}|}{\mathcal{K}}\right)^{m} 
+\!\!\!
 b_{\mathbf{k }}^{\textcolor{black}{\dagger}}
 b_{\mathbf{k }}^{\textcolor{white}{\dagger}}
+\!
 +
-\sum_{\mathbf{k}\neq \mathbf{p}} 2
-\frac{V_{\mathbf{k-p}}}{2A}
+\!
+\sum_{\mathbf{k}\neq \mathbf{p}}
+\frac{V_{\mathbf{k-p}}}{A}
 b_{\mathbf{k }}^{\textcolor{black}{\dagger}}
 b_{\mathbf{k }}^{\textcolor{white}{\dagger}}
 \cos (m\phi_{\mathbf{k }\mathbf{p }})
-\\ &+ 
+\\ &+ &
 \sum_{\mathbf{k}\neq \mathbf{k'}} 
+\!
 \frac{V_{\mathbf{k-k'}}}{4A}
+\!
 \left( 1 + \cos(m\phi_{\mathbf{k}_{1}\mathbf{k}_{2}}) \right) 
+\!
 \left(	
 b_{\mathbf{k}_{1}}^{\textcolor{black}{\dagger}}
 b_{\mathbf{k}_{2}}^{\textcolor{white}{\dagger}} + 
 b_{\mathbf{k}_{1}}^{\textcolor{white}{\dagger}}
 b_{\mathbf{k}_{2}}^{\textcolor{black}{\dagger}}
 \right) + 
-\\ &+ 
+\\ 
+\nonumber &+ &
 \sum_{\mathbf{k}\neq \mathbf{k'}} 
+\!
 \frac{V_{\mathbf{k-k'}}}{4A}
+\!
 \left( 1 - \cos(m\phi_{\mathbf{k}_{1}\mathbf{k}_{2}}) \right) 
+\!
 \left(	
 b_{\mathbf{k}_{1}}^{\textcolor{black}{\dagger}}
 b_{\mathbf{k}_{2}}^{\textcolor{black}{\dagger}} + 
 b_{\mathbf{k}_{1}}^{\textcolor{white}{\dagger}}
 b_{\mathbf{k}_{2}}^{\textcolor{white}{\dagger}}
 \right). 
-\end{split}
-\end{equation}
+\end{eqnarray}
 The first line contains the kinetic and self-energy terms. The second line can be viewed as boson hopping terms in the momentum lattice. The third line can be viewed as pairing terms which change the number of bosons. Lastly, by using the Bogoliubov basis given by
 \begin{equation}
 \label{eq:Supp:Bogoliubov-basis}
@@ -797,17 +806,17 @@ e^{xy \cos(\phi)}
 \int \!\! \frac{d\phi }{(2\pi)}
 \left(
 I_{0}(z) + 
-2\sum_{n=1}^{\infty}I_{n}(z)\cos(n\phi)
+2\sum_{n=1}^{\infty}I_{n}(xy)\cos(n\phi)
 \right)
 \! \cos(m\phi)
 \\=&
-2\sum_{n=1}^{\infty}I_{n}(z)
+2\sum_{n=1}^{\infty}I_{n}(xy)
 \left(
 \int \!\! \frac{d\phi }{(2\pi)}
 \cos(n\phi)\! \cos(m\phi)
 \right)
 \\=&
-\sum_{n=1}^{\infty}I_{n}(z) \delta_{nm}
+\sum_{n=1}^{\infty}I_{n}(xy) \delta_{nm}
 = I_{m}(z)
 ,
 \end{split}
@@ -836,7 +845,26 @@ I_{\frac{m+1}{2}}\left(\frac{y^{2}}{4}\right)
 ,
 \end{split}
 \end{equation}
-
+Lastly, the self-energy is then expressed as
+\begin{equation}
+\begin{split}
+&\Sigma^{m}\!(\mathbf{k })
+\! = \!
+\frac{E_{\mathrm{UV}}}{4a_{\mathcal{K}}^{2}}
+\frac{k e^{-\frac{k^{2}}{\mathcal{K}^{2}}}}{\mathcal{K}\sqrt{2\pi}}
+\!\!
+\left[ 
+I_{\frac{m-1}{2}}\!\!
+\left(\frac{k^{2}}{4\mathcal{K}^{2}}\right)
+\!\! + \!
+I_{\frac{m+1}{2}}\!\!
+\left(\frac{k^{2}}{4\mathcal{K}^{2}}\right)
+\!
+\right]
+\!
+,
+\end{split}
+\end{equation}
 
 We did numerical integration for $V_{0}=1$, $a=1$ and $\mathcal{K}=1$, shown in the Fig.  \ref{fig:Multilayer-Self-Energies}. The main feature are the asymptotic limits for large and small momentum, and the slight shift to the left with the increase of the number of layers. 
 \begin{figure}[h]
