@@ -179,26 +179,40 @@ E_{\mathrm{UV} }\sum_{\mathbf{k }\sigma\sigma'}
 where $[\hat{\mathbf{n}}_{m}]= 
 \begin{pmatrix}
 \cos(m\phi_{m})	&	\!\!\sin(m\phi_{m})
-\end{pmatrix}$ and $E_{\mathrm{UV} }$ is the numerical value of the kinetic term evaluated at the momentum of the UV cutoff, and whose shape depends on $m$:
+\end{pmatrix}$ and $E_{\mathrm{UV} }$ is the numerical value of the kinetic term evaluated at $\mathcal{K}$, and whose shape depends on $m$:
 \begin{itemize}
 \item $m=1$: $E_{\mathrm{UV} } = v\mathcal{K}$, where $v$ is the Fermi velocity of the Dirac fermions.
-\item $m=2$: $E_{\mathrm{UV} } = \mathcal{K}^{2}/2m_{e}$, where $m_{e}$ is the effective mass of the electron with parabolic dispersion relation. 
+\item $m=2$: $E_{\mathrm{UV} } = \mathcal{K}^{2}/2m_{e}$, where $m_{e}$ is the effective mass of the electron. 
 \end{itemize}
 The potential is given by
 \begin{equation}
 V_{\mathbf{r}} = 
-V_{0}e^{-r^{2}/a^{2}}
+V_{0}e^{-r^{2}/2a^{2}}
 \end{equation}
-with $V_{0}$ the intensity of the Gaussian potential and $a$ sets the spreading of the potential in the reciprocal space. Its Fourier transform is expressed as
-\begin{equation}
-V_{\mathbf{k}} = \pi a^{2} V_{0} 
-e^{-\left(\tfrac{a\mathcal{K}}{2}\right)^{2}
+with $V_{0}$ the intensity of the Gaussian potential and $a$ sets the spreading in the real space. Its Fourier transform is
+\begin{eqnarray*}
+\nonumber	
+V_{\mathbf{k}} = 2\pi a^{2}V_{0}
+e^{-\tfrac{a^{2}k^{2}}{2}}\!
+= \frac{E_{\mathrm{UV}}}{\mathcal{K}^{2}} 
+\left[ \frac{2\pi (a\mathcal{K})^{2}V_{0}}{E_{\mathrm{UV}}}
+e^{-\tfrac{(a{\mathcal{K}})^{2}}{2}
 \left( \tfrac{k}{\mathcal{K}} \right)^{2}}
+\right],	
+\end{eqnarray*}
+\vspace{-.5cm}
+\begin{equation}
+\label{eq:Fourier-Potential}
+V_{\mathbf{k}} = \frac{E_{\mathrm{UV}}}{\mathcal{K}^{2}} 
+\left( g_{0} 
+e^{-\tfrac{a_{\mathcal{K}}^{2}}{2}
+\left( \tfrac{k}{\mathcal{K}} \right)^{2}}
+\right),	
 \end{equation}
-where $k=|\mathbf{k}|$. It is assumed that $a>2\pi/\mathcal{K}$, i.e., the spreading of the Gaussian should be larger than the lattice parameter $2\pi/\mathcal{K}$. The effect of the potential is then described by two nondimensional quantities:
+where $k=|\mathbf{k}|$. It is assumed that $a>2\pi/\mathcal{K}$, i.e., the spreading of the Gaussian should be larger than the lattice parameter $2\pi/\mathcal{K}$. The additional two nondimensional parameters are:
 \begin{itemize}
 \item $a_{\mathcal{K}}=a\mathcal{K}$: Determines how concentrated is the potential in the reciprocal space. It is constrained to be larger than one.
-\item $g_{\mathcal{K}}=\pi a_{\mathcal{K}}^{2}V_{0}/E_{\mathrm{UV}}$: Relates the intensity of the Gaussian potential in the reciprocal space with $E_{\mathrm{UV}}$, the kinetic energy at the UV cutoff.
+\item $g_{\mathcal{K}}=2\pi a_{\mathcal{K}}^{2}V_{0}/E_{\mathrm{UV}}$: Relates the intensity of the Gaussian potential in the reciprocal space with $E_{\mathrm{UV}}$, the kinetic energy at the UV cutoff.
 \end{itemize}
 Lastly, the interaction Hamiltonian can be expressed as
 \begin{eqnarray}
@@ -216,13 +230,14 @@ V_{\mathbf{q}}
 \sum_{\mathbf{k }\mathbf{k'}}
 \sum_{\sigma \sigma'} 
 g_{\mathcal{K}}
-e^{-\tfrac{a_{\mathcal{K}}^{2}}{4}\left( \tfrac{k}{\mathcal{K}} \right)^{2}}
+e^{-\tfrac{a_{\mathcal{K}}^{2}}{2}\left( \tfrac{k}{\mathcal{K}} \right)^{2}}
 \!\! 
 \psi_{\mathbf{k'+q,\sigma'}}^{\textcolor{black}{\dagger}}
 \psi_{\mathbf{k -q,\sigma }}^{\textcolor{black}{\dagger}}
 \psi_{\mathbf{k   ,\sigma }}^{\textcolor{white}{\dagger}}
 \psi_{\mathbf{k'  ,\sigma'}}^{\textcolor{white}{\dagger}}.
 \end{eqnarray}
+where $A$ is the total area of the system.
 
 \section{Restricted Hilbert space for $\mathbf{Q}=0$ excitons and pseudospin basis}
 \begin{figure}
@@ -710,20 +725,119 @@ T_{\mathbf{kk'}} =
 \section{Hartree-Fock Self-energy in multilayer graphene}
 \label{sect:Self-Energy}
 
-The explicit Hartree-Fock self-energy found is
+The Hartree-Fock self-energy of the electrons and holes is given by
 \begin{equation}
 \begin{split}
-\Sigma^{m}(\mathbf{k }) &= 
-\int \frac{d^2 \mathbf{k'}}{(2\pi)^2}
-V(\mathbf{k-k'	})\cos(m\phi_{\mathbf{kk'}}) \\ &= 
-V_{0}
-\int \frac{d^2 \mathbf{k'}}{(2\pi)^2}
-\left(
-e^{-a^{2}|\mathbf{k}_{1}-\mathbf{k}_{2}|^{2}}
-\right)
-\cos(m\phi_{\mathbf{kk'}}).
+&\Sigma^{m}(\mathbf{k }) = 
+\int \!\! \frac{d^2 \mathbf{p}}{(2\pi)^2}
+V(\mathbf{ k-p })\cos(m\phi_{\mathbf{ k p}}),
 \end{split}
 \end{equation}
+After replacing the Fourier potential in eq. \eqref{eq:Fourier-Potential}
+\begin{equation}
+\begin{split}
+&\Sigma^{m}(\mathbf{k }) = \frac{E_{\mathrm{UV}}}{\mathcal{K}^{2}}
+\int \!\! \frac{d^2 \mathbf{p}}{(2\pi)^2}
+g_{\mathcal{K}}
+e^{-\tfrac{a_{\mathcal{K}}^{2}}{2}\left( \tfrac{k}{\mathcal{K}} \right)^{2}}
+\cos(m\phi_{\mathbf{ k p}}),
+\end{split}
+\end{equation}
+
+\begin{equation}
+I(k)=\int \!\! \frac{p dp d\phi }{(2\pi)^2}
+e^{-\left( 
+\tfrac{k^{2}+p^{2}-2kp \cos \!\phi}{2} 
+\right)}
+\cos(m\phi)
+\end{equation}
+Substituting $x=a_{\mathcal{K}}p/\mathcal{K}$ and $y=a_{\mathcal{K}}k/\mathcal{K}$
+\begin{equation}
+\begin{split}
+&I(k)=\frac{\mathcal{K}^{2}}{a_{\mathcal{K}}^{2}}\!\!
+\int \!\! \frac{x dx d\phi }{(2\pi)^2}
+e^{-\left( 
+\tfrac{x^{2}+y^{2}-2xy \cos \!\phi}{2} 
+\right)}
+\!\! \cos(m\phi) \\ &=
+\frac{\mathcal{K}^{2}}{a_{\mathcal{K}}^{2}}\!\!
+\int \!\! \frac{x dx}{(2\pi)}
+e^{-\tfrac{x^{2}+y^{2}}{2} } \!\!
+\int \!\! \frac{d\phi }{(2\pi)}
+e^{xy \cos \!\phi} 
+\! \cos(m\phi)
+,
+\end{split}
+\end{equation}
+The polar integral is done using the Jacobi-Anger identity
+\begin{equation}
+\begin{split}
+e^{iz\cos\phi} \!&= \!\!\!
+\sum_{n=-\infty}^{+\infty}i^{n}J_{n}(z)e^{in\phi}
+\\&= J_{0}(z) + 
+2\sum_{n=1}^{\infty}i^{n}J_{n}(z)\cos(n\phi)
+\end{split}
+\end{equation}
+with imaginary argument 
+\begin{equation}
+\begin{split}
+e^{z\cos\phi}&=\sum_{n=-\infty}^{+\infty}I_{n}(z)e^{in\phi}
+\\& = I_{0}(z) + 
+2\sum_{n=1}^{\infty}I_{n}(z)\cos(n\phi)
+\end{split}
+\end{equation}
+so that
+\begin{equation}
+\begin{split}
+&
+\int \!\! \frac{d\phi }{(2\pi)}
+e^{xy \cos(\phi)} 
+\! \cos(m\phi)
+\\=&
+\int \!\! \frac{d\phi }{(2\pi)}
+\left(
+I_{0}(z) + 
+2\sum_{n=1}^{\infty}I_{n}(z)\cos(n\phi)
+\right)
+\! \cos(m\phi)
+\\=&
+2\sum_{n=1}^{\infty}I_{n}(z)
+\left(
+\int \!\! \frac{d\phi }{(2\pi)}
+\cos(n\phi)\! \cos(m\phi)
+\right)
+\\=&
+\sum_{n=1}^{\infty}I_{n}(z) \delta_{nm}
+= I_{m}(z)
+,
+\end{split}
+\end{equation}
+Substituting $I_{m}(z)$ yields
+\begin{equation}
+\begin{split}
+I&(k) =
+\frac{\mathcal{K}^{2}}{a_{\mathcal{K}}^{2}}\!\!
+\int \!\! \frac{x dx}{(2\pi)}
+e^{-\tfrac{x^{2}+y^{2}}{2} } \!\!
+\int \!\! \frac{d\phi }{(2\pi)}
+e^{xy \cos \!\phi} 
+\! \cos(m\phi) 
+\\ &=
+\frac{\mathcal{K}^{2}}{a_{\mathcal{K}}^{2}}\!\!
+\int \!\! \frac{x dx}{(2\pi)}
+e^{-\tfrac{x^{2}+y^{2}}{2} } \! I_{m}(xy)
+\\ &=
+\frac{\mathcal{K}^{2}}{a_{\mathcal{K}}^{2}}
+\frac{y e^{-\frac{y^{2}}{4}}}{4\sqrt{2\pi}}
+\left[ 
+I_{\frac{m-1}{2}}\left(\frac{y^{2}}{4}\right) + 
+I_{\frac{m+1}{2}}\left(\frac{y^{2}}{4}\right)
+\right]
+,
+\end{split}
+\end{equation}
+
+
 We did numerical integration for $V_{0}=1$, $a=1$ and $\mathcal{K}=1$, shown in the Fig.  \ref{fig:Multilayer-Self-Energies}. The main feature are the asymptotic limits for large and small momentum, and the slight shift to the left with the increase of the number of layers. 
 \begin{figure}[h]
 \centering
