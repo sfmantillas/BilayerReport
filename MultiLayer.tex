@@ -718,7 +718,7 @@ T^{m}_{\mathbf{k}_{1}\mathbf{k}_{2}},
 \end{split}
 \end{equation}
 with $E_{\mathbf{k}} = v|\mathbf{k}| + \Sigma_{\mathbf{k}}$, $\Sigma_{\mathbf{k}} = \sum_{ \mathbf{k'}} 
-V_{\mathbf{k-k'}}\cos \cos (m\phi_{\mathbf{k }\mathbf{k'}})/2A$ is the Hartree-Fock self-energy, $T_{\mathbf{kk'}}$ is
+V_{\mathbf{k-k'}}\cos (m\phi_{\mathbf{k }\mathbf{k'}})/2A$ is the Hartree-Fock self-energy, $T_{\mathbf{kk'}}$ is
 \begin{equation}
 \label{eq:Interacion-matrix}
 T_{\mathbf{kk'}} = 
@@ -745,23 +745,28 @@ V(\mathbf{ k-p })\cos(m\phi_{\mathbf{ k p}}),
 After replacing the Fourier potential in eq. \eqref{eq:Fourier-Potential}
 \begin{equation}
 \begin{split}
-&\Sigma^{m}(\mathbf{k }) = \frac{E_{\mathrm{UV}}}{\mathcal{K}^{2}}
+&\Sigma^{m}(\mathbf{k }) = 
+\frac{E_{\mathrm{UV}}}{\mathcal{K}^{2}}
+\!\!
 \int \!\! \frac{d^2 \mathbf{p}}{(2\pi)^2}
 g_{\mathcal{K}}
-e^{-\tfrac{a_{\mathcal{K}}^{2}}{2}\left( \tfrac{k}{\mathcal{K}} \right)^{2}}
+e^{-\tfrac{a_{\mathcal{K}}^{2}}{2}\left( \tfrac{\mathbf{ k-p }}{\mathcal{K}} \right)^{2}} 
+\!\!
 \cos(m\phi_{\mathbf{ k p}}),
 \end{split}
 \end{equation}
 
+In order to get an analytic expression for $\Sigma^{m}(\mathbf{k })$ it is defined the following integral as
 \begin{equation}
 I(k)=\int \!\! \frac{p dp d\phi }{(2\pi)^2}
 e^{-\left( 
 \tfrac{k^{2}+p^{2}-2kp \cos \!\phi}{2} 
 \right)}
-\cos(m\phi)
+\cos(m\phi),
 \end{equation}
-Substituting $x=a_{\mathcal{K}}p/\mathcal{K}$ and $y=a_{\mathcal{K}}k/\mathcal{K}$
+and, after substituting $x=a_{\mathcal{K}}p/\mathcal{K}$ and $y=a_{\mathcal{K}}k/\mathcal{K}$,
 \begin{equation}
+\label{eq:Self-energy-integral}
 \begin{split}
 &I(k)=\frac{\mathcal{K}^{2}}{a_{\mathcal{K}}^{2}}\!\!
 \int \!\! \frac{x dx d\phi }{(2\pi)^2}
@@ -770,70 +775,75 @@ e^{-\left(
 \right)}
 \!\! \cos(m\phi) \\ &=
 \frac{\mathcal{K}^{2}}{a_{\mathcal{K}}^{2}}\!\!
-\int \!\! \frac{x dx}{(2\pi)}
+\int \!\! \frac{x dx}{2\pi}
 e^{-\tfrac{x^{2}+y^{2}}{2} } \!\!
-\int \!\! \frac{d\phi }{(2\pi)}
+\int \!\! \frac{d\phi }{2\pi}
 e^{xy \cos \!\phi} 
 \! \cos(m\phi)
 ,
 \end{split}
 \end{equation}
 The polar integral is done using the Jacobi-Anger identity
+\begin{equation*}
+\begin{split}
+e^{i\zeta\cos\phi} \!&= \!\!\!
+\sum_{n=-\infty}^{+\infty} \!\!\!\!
+i^{n}J_{n}(\zeta)e^{in\phi}\!
+= J_{0}(\zeta)\! + \!
+2\sum_{n=1}^{\infty} \!
+i^{n}J_{n}(\zeta)\cos(n\phi),
+\end{split}
+\end{equation*}
+with imaginary argument $i\zeta=z$
 \begin{equation}
 \begin{split}
-e^{iz\cos\phi} \!&= \!\!\!
-\sum_{n=-\infty}^{+\infty}i^{n}J_{n}(z)e^{in\phi}
-\\&= J_{0}(z) + 
-2\sum_{n=1}^{\infty}i^{n}J_{n}(z)\cos(n\phi)
+e^{z\cos\phi} \!&= \!\!\!\! 
+\sum_{n=-\infty}^{+\infty} \!\!\!\!
+I_{n}(z)e^{in\phi}\!
+= J_{0}(z)\! + \!
+2 \! \sum_{n=1}^{\infty} \!
+I_{n}(z)\cos(n\phi),
 \end{split}
 \end{equation}
-with imaginary argument 
-\begin{equation}
-\begin{split}
-e^{z\cos\phi}&=\sum_{n=-\infty}^{+\infty}I_{n}(z)e^{in\phi}
-\\& = I_{0}(z) + 
-2\sum_{n=1}^{\infty}I_{n}(z)\cos(n\phi)
-\end{split}
-\end{equation}
-so that
+so that 
 \begin{equation}
 \begin{split}
 &
-\int \!\! \frac{d\phi }{(2\pi)}
+\int \!\! \frac{d\phi }{2\pi}
 e^{xy \cos(\phi)} 
 \! \cos(m\phi)
 \\=&
-\int \!\! \frac{d\phi }{(2\pi)}
+\int \!\! \frac{d\phi }{2\pi}
 \left(
 I_{0}(z) + 
 2\sum_{n=1}^{\infty}I_{n}(xy)\cos(n\phi)
 \right)
 \! \cos(m\phi)
-\\=&
+\\=& \,
 2\sum_{n=1}^{\infty}I_{n}(xy)
 \left(
-\int \!\! \frac{d\phi }{(2\pi)}
+\int \!\! \frac{d\phi }{2\pi}
 \cos(n\phi)\! \cos(m\phi)
 \right)
 \\=&
 \sum_{n=1}^{\infty}I_{n}(xy) \delta_{nm}
-= I_{m}(z)
+= I_{m}(xy)
 ,
 \end{split}
 \end{equation}
-Substituting $I_{m}(z)$ yields
+Substituting $I_{m}(xy)$ in the self-energy integral in Eq. \eqref{eq:Self-energy-integral} yields
 \begin{equation}
 \begin{split}
 I&(k) =
 \frac{\mathcal{K}^{2}}{a_{\mathcal{K}}^{2}}\!\!
-\int \!\! \frac{x dx}{(2\pi)}
+\int \!\! \frac{x dx}{2\pi}
 e^{-\tfrac{x^{2}+y^{2}}{2} } \!\!
-\int \!\! \frac{d\phi }{(2\pi)}
+\int \!\! \frac{d\phi }{2\pi}
 e^{xy \cos \!\phi} 
 \! \cos(m\phi) 
 \\ &=
 \frac{\mathcal{K}^{2}}{a_{\mathcal{K}}^{2}}\!\!
-\int \!\! \frac{x dx}{(2\pi)}
+\int \!\! \frac{x dx}{2\pi}
 e^{-\tfrac{x^{2}+y^{2}}{2} } \! I_{m}(xy)
 \\ &=
 \frac{\mathcal{K}^{2}}{a_{\mathcal{K}}^{2}}
@@ -845,21 +855,70 @@ I_{\frac{m+1}{2}}\left(\frac{y^{2}}{4}\right)
 ,
 \end{split}
 \end{equation}
-Lastly, the self-energy is then expressed as
+
+Lastly, the self-energy of the $m$-layer graphene is then expressed as
 \begin{equation}
 \begin{split}
-&\Sigma^{m}\!(\mathbf{k })
-\! = \!
-\frac{E_{\mathrm{UV}}}{4a_{\mathcal{K}}^{2}}
-\frac{k e^{-\frac{k^{2}}{\mathcal{K}^{2}}}}{\mathcal{K}\sqrt{2\pi}}
-\!\!
+\Sigma^{m}(\mathbf{k })
+\! &= \!
+\frac{g_{\mathcal{K}}E_{\mathrm{UV}}}{4a_{\mathcal{K}}}
+\frac{k e^{-\frac{a_{\mathcal{K}}^{2}k^{2}}{4\mathcal{K}^{2}}}}{\mathcal{K}\sqrt{2\pi}}
+ \times \\ &\times
 \left[ 
 I_{\frac{m-1}{2}}\!\!
-\left(\frac{k^{2}}{4\mathcal{K}^{2}}\right)
+\left(\frac{a_{\mathcal{K}}^{2}k^{2}}{4\mathcal{K}^{2}}\right)
 \!\! + \!
 I_{\frac{m+1}{2}}\!\!
-\left(\frac{k^{2}}{4\mathcal{K}^{2}}\right)
+\left(\frac{a_{\mathcal{K}}^{2}k^{2}}{4\mathcal{K}^{2}}\right)
 \!
+\right]
+\!
+,
+\end{split}
+\end{equation}
+As special cases, the self-energy corresponding to the monolayer and bilayer graphene are
+\begin{equation}
+\begin{split}
+\Sigma^{1}\!(\mathbf{k })
+\! &= \!
+\frac{g_{\mathcal{K}}E_{\mathrm{UV}}}{4a_{\mathcal{K}}}
+\frac{k e^{-\frac{a_{\mathcal{K}}^{2}k^{2}}{4\mathcal{K}^{2}}}}{\mathcal{K}\sqrt{2\pi}}
+\!\!
+\left[ 
+I_{0}\!\!
+\left(\frac{a_{\mathcal{K}}^{2}k^{2}}{4\mathcal{K}^{2}}\right)
+\!\! + \!
+I_{1}\!\!
+\left(\frac{a_{\mathcal{K}}^{2}k^{2}}{4\mathcal{K}^{2}}\right)
+\!
+\right]
+\!
+,
+\end{split}
+\end{equation}
+\begin{equation}
+\begin{split}
+\Sigma^{2}(\mathbf{k })
+\! &= \!
+\frac{g_{\mathcal{K}}E_{\mathrm{UV}}}{4a_{\mathcal{K}}}
+\frac{k e^{-\frac{a_{\mathcal{K}}^{2}k^{2}}{4\mathcal{K}^{2}}}}{\mathcal{K}\sqrt{2\pi}}
+\!\!
+\left[ 
+I_{\frac{1}{2}}\!\!
+\left(\frac{a_{\mathcal{K}}^{2}k^{2}}{4\mathcal{K}^{2}}\right)
+\!\! + \!
+I_{\frac{3}{2}}\!\!
+\left(\frac{a_{\mathcal{K}}^{2}k^{2}}{4\mathcal{K}^{2}}\right)
+\!
+\right]
+\! \\ &= \!
+\frac{g_{\mathcal{K}}E_{\mathrm{UV}}}{2\pi a_{\mathcal{K}}^{2}}
+\left[
+1 - 
+\frac{2\mathcal{K}^{2}}{a_{\mathcal{K}}^{2}k^{2}}
+\left(
+1-e^{-\frac{a_{\mathcal{K}}^{2}k^{2}}{2\mathcal{K}^{2}}}
+\right)
 \right]
 \!
 ,
