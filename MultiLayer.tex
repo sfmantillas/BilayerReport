@@ -211,8 +211,8 @@ e^{-\tfrac{a_{\mathcal{K}}^{2}}{2}
 \end{equation}
 where $k=|\mathbf{k}|$. It is assumed that $a>2\pi/\mathcal{K}$, i.e., the spreading of the Gaussian should be larger than the lattice parameter $2\pi/\mathcal{K}$. The additional two nondimensional parameters are:
 \begin{itemize}
-\item $a_{\mathcal{K}}=a\mathcal{K}$: Determines how concentrated is the potential in the reciprocal space. It is constrained to be larger than one.
-\item $g_{\mathcal{K}}=2\pi a_{\mathcal{K}}^{2}V_{0}/E_{\mathrm{UV}}$: Relates the intensity of the Gaussian potential in the reciprocal space with $E_{\mathrm{UV}}$, the kinetic energy at the UV cutoff.
+\item Reciprocal spreading $a_{\mathcal{K}}=a\mathcal{K}$: Determines how concentrated is the potential in the reciprocal space. $a_{\mathcal{K}}$ is constrained to be larger than one.
+\item Coupling constant $g_{\mathcal{K}}=2\pi a_{\mathcal{K}}^{2}V_{0}/E_{\mathrm{UV}}$: Relates the intensity of the Gaussian potential in the reciprocal space with $E_{\mathrm{UV}}$, the kinetic energy at the UV cutoff. 
 \end{itemize}
 Lastly, the interaction Hamiltonian can be expressed as
 \begin{eqnarray}
@@ -736,13 +736,14 @@ T_{\mathbf{kk'}} =
 
 The Hartree-Fock self-energy of the electrons and holes is given by
 \begin{equation}
+\label{eq:General-HF-Energy}
 \begin{split}
 &\Sigma^{m}(\mathbf{k }) = 
 \int \!\! \frac{d^2 \mathbf{p}}{(2\pi)^2}
 V(\mathbf{ k-p })\cos(m\phi_{\mathbf{ k p}}),
 \end{split}
 \end{equation}
-After replacing the Fourier potential in eq. \eqref{eq:Fourier-Potential}
+The Fourier potential in \eqref{eq:Fourier-Potential} is then replaced in \eqref{eq:General-HF-Energy}
 \begin{equation}
 \begin{split}
 &\Sigma^{m}(\mathbf{k }) = 
@@ -756,7 +757,7 @@ e^{-\tfrac{a_{\mathcal{K}}^{2}}{2}\left( \tfrac{\mathbf{ k-p }}{\mathcal{K}} \ri
 \end{split}
 \end{equation}
 
-In order to get an analytic expression for $\Sigma^{m}(\mathbf{k })$ it is defined the following integral as
+In order to get an analytic expression for $\Sigma^{m}(\mathbf{k })$, it is defined the following integral as
 \begin{equation}
 I(k)=\int \!\! \frac{p dp d\phi }{(2\pi)^2}
 e^{-\left( 
@@ -815,7 +816,7 @@ e^{xy \cos(\phi)}
 \\=&
 \int \!\! \frac{d\phi }{2\pi}
 \left(
-I_{0}(z) + 
+I_{0}(xy) + 
 2\sum_{n=1}^{\infty}I_{n}(xy)\cos(n\phi)
 \right)
 \! \cos(m\phi)
@@ -886,20 +887,25 @@ The two limit cases for large and small momenta are given by the following expre
 \end{split}
 \end{equation}
 
-As special cases, the self-energy corresponding to the monolayer and bilayer graphene are
+As special cases, the self-energy corresponding to any odd-layer and bilayer graphene are
 \begin{equation}
 \begin{split}
-\Sigma^{1}\!(\mathbf{k })
+\!\!\!\!\Sigma^{n}\!(\mathbf{k })
 \! &= \!
 \frac{g_{\mathcal{K}}E_{\mathrm{UV}}}{8a_{\mathcal{K}}}
 \frac{k e^{-\frac{a_{\mathcal{K}}^{2}k^{2}}{4\mathcal{K}^{2}}}}{\mathcal{K}\sqrt{2\pi}}
 \!\!
 \left[ 
-I_{0}\!\!
-\left(\frac{a_{\mathcal{K}}^{2}k^{2}}{4\mathcal{K}^{2}}\right)
+\!
+I_{n}\!\!
+\left(\!
+\frac{a_{\mathcal{K}}^{2}k^{2}}{4\mathcal{K}^{2}}
+\!\right)
 \!\! + \!
-I_{1}\!\!
-\left(\frac{a_{\mathcal{K}}^{2}k^{2}}{4\mathcal{K}^{2}}\right)
+I_{n+1}\!\!
+\left(\!
+\frac{a_{\mathcal{K}}^{2}k^{2}}{4\mathcal{K}^{2}}
+\!\right)
 \!
 \right]
 \!
@@ -915,10 +921,14 @@ I_{1}\!\!
 \!\!
 \left[ 
 I_{\frac{1}{2}}\!\!
-\left(\frac{a_{\mathcal{K}}^{2}k^{2}}{4\mathcal{K}^{2}}\right)
+\left(\!
+\frac{a_{\mathcal{K}}^{2}k^{2}}{4\mathcal{K}^{2}}
+\!\right)
 \!\! + \!
 I_{\frac{3}{2}}\!\!
-\left(\frac{a_{\mathcal{K}}^{2}k^{2}}{4\mathcal{K}^{2}}\right)
+\left(\!
+\frac{a_{\mathcal{K}}^{2}k^{2}}{4\mathcal{K}^{2}}
+\!\right)
 \!
 \right]
 \! \\ &= \!
@@ -934,44 +944,63 @@ I_{\frac{3}{2}}\!\!
 ,
 \end{split}
 \end{equation}
-and their corresponding small-momentum regimes are described by
+where $n$ is an odd integer (see the FIG. \ref{fig:Multilayer-Self-Energies} for the cases of monolayer, bilayer and trilayer graphene). Their corresponding small-momentum regimes are described by
 \begin{equation}
 \begin{split}
 \Sigma^{1}\!(\mathbf{k })
-\! &\approx \!
+ &\approx 
 \frac{g_{\mathcal{K}}E_{\mathrm{UV}}}
 {8 \sqrt{2 \pi } a_{\mathcal{K}}}
 \!
 \left( \frac{k}{\mathcal{K}} \right)
-, \quad
++ O(k^{2})
+, \\
 \Sigma^{2}(\mathbf{k })
-\! \approx \!
+ &\approx 
 \frac{g_{\mathcal{K}}E_{\mathrm{UV}}}
 {16\pi }
 \!\! 
 \left( \frac{k}{\mathcal{K}} \right)^2
+\!\!
++ O(k^{3})
+, \\
+\Sigma^{3}(\mathbf{k })
+ &\approx 
+\frac{a_{\mathcal{K}} E_{\mathrm{UV}}}
+{64 \sqrt{2} \sqrt{\pi }}
+\!\! 
+\left( \frac{k}{\mathcal{K}} \right)^3
+\!\!
++ O(k^{4})
 ,
 \end{split}
 \end{equation}
+Notice that the dependence on $a_{\mathcal{K}}$ of the lowest-expansion-term coefficient for $\Sigma^{1}(\mathbf{k })$ is inverse to the dependence of $\Sigma^{3}(\mathbf{k })$. Even more, the lowest-expansion-term coefficient for $\Sigma^{2}(\mathbf{k })$ is independent of $a_{\mathcal{K}}$, as it is shown in FIG. \ref{fig:Multilayer-Self-Energies-Taylor}. 
 
-We did numerical integration for $V_{0}=1$, $a=1$ and $\mathcal{K}=1$, shown in the Fig.  \ref{fig:Multilayer-Self-Energies}. The main feature are the asymptotic limits for large and small momentum, and the slight shift to the left with the increase of the number of layers. 
 \begin{figure}[h]
 \centering
 \includegraphics[scale=0.6]{SelfEnergyPlot123.pdf}
-\caption{Hartree-Fock $\huge{\alpha}$ self-energies of the Dirac fermions for monolayer and bilayer graphene with the Gaussian potential ($V_{0}=1$ and $a=1$). }
+\caption{Hartree-Fock self-energy $\Sigma^{m}(\mathbf{k})$ for monolayer ($m=1$, red), bilayer ($m=2$, green) and trilayer ($m=3$, blue) graphene. The dashing of the plots represent the value of the spreading parameter: $a_{\mathcal{K}}=1$ (dotted), $a_{\mathcal{K}}$ (dashed), and $a_{\mathcal{K}}=3$ (solid), while the horizontal black lines represent the asymptotic limit $\Sigma^{m}(\infty)$ the three values of $a_{\mathcal{K}}$. The little rectangle at the origin is zoomed in in FIG. \ref{fig:Multilayer-Self-Energies-Taylor}.}
 \label{fig:Multilayer-Self-Energies}
 \end{figure}
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.6]{SelfEnergyPlot123Taylor.pdf}
+\caption{Low-momentum limit for $\Sigma^{m}(\mathbf{k})$ in monolayer, bilayer and trilayer graphene. The legends are the same shown in FIG. \ref{fig:Multilayer-Self-Energies} with the additional bolded curves representing the lowest-order expantion terms and labels of $a_{\mathcal{K}}$ to help with the interpretation of the plot. Notice that the low-momentum limit of $\Sigma^{2}(\mathbf{k})$ is independent of $a_{\mathcal{K}}$.}
+\label{fig:Multilayer-Self-Energies-Taylor}
+\end{figure}
+
 
 \section{Angular momentum channels and parametrization of the radial coordinate}
 In order to exploit the emergent rotational invariance in the thermodynamic limit, we use the following polar parametrization $\mathbf{z}=(k,\phi)$:
 \begin{equation}
 \label{eq:Tangential-radius}
 \begin{split}
-    k_{m} &= \frac{\mathcal{K}}{\sqrt{2}} \tan^{2}(n \Delta \theta), 
-    \quad \phi_{l}=n\Delta \phi,
+    k_{n} &= n\Delta k,
+    \quad \phi_{l} = l\Delta \phi,
 \end{split}
 \end{equation}
-where $(k_n,\phi_l)$ are the polar coordinates of a given site in the polar momentum lattice, $\mathcal{K}$ is the UV momentum scale, $\Delta \theta = (\sfrac{\pi}{2}) /(N+1)$, $\Delta \phi = 2\pi/(2L+1)$, and $l={0,...,2L}$, $n={1,...,N}$. 
+where $(k_n,\phi_l)$ are the polar coordinates of a given site in the polar momentum lattice, $\Delta k = \mathcal{K}/(N+1)$ with $n={1,...,N}$, and $\Delta \phi = 2\pi/(2L+1)$ with $l={0,...,2L}$. 
 
 Because the Hamiltonian matrix $H_{\mathbf{k k'}}$ that enters into the Hamiltonina $H_{HP}$ in Eq. \eqref{eq:HP-Hamiltonian} of the main text only depends on the difference between the polar angles $\phi-\phi'$ we have conservation of the angular momentum $\ell$ of the bosons. Consequently, we perform Fourier transforms on the polar angle $\phi_{l}$ for the fields $B_{m}^{l\textcolor{white}{\dagger}}$ and the matrix $H_{nn'}^{ll'}$
 \begin{equation}
