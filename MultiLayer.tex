@@ -170,13 +170,13 @@ We set $\hbar = 1$ throughout all the text. The UV cutoff $\mathcal{K}$ of the s
 E_{\mathrm{UV} }\sum_{\mathbf{k }\sigma\sigma'}
 \left(\frac{|\mathbf{k}|}{\mathcal{K}}\right)^{m}
 \psi_{\mathbf{k },\sigma}^{\textcolor{black}{\dagger}}
-\left( \hat{\mathbf{n}}_{m} \cdot 
+\left( \hat{\mathbf{k}}_{m} \cdot 
 \boldsymbol{\sigma}_{\sigma\sigma'} \right)
 \psi_{\mathbf{k },\sigma'}^{\textcolor{white}{\dagger}}
 ,
 \end{split}
 \end{equation}
-where $[\hat{\mathbf{n}}_{m}]= 
+where $[\hat{\mathbf{k}}_{m}]= 
 \begin{pmatrix}
 \cos(m\phi_{m})	&	\!\!\sin(m\phi_{m})
 \end{pmatrix}$ and $E_{\mathrm{UV} }$ is the numerical value of the kinetic term evaluated at $\mathcal{K}$, and whose shape depends on $m$:
@@ -428,7 +428,7 @@ where the first term represents a $m$-folded spin vortex (see FIG. \ref{fig:Clas
 %\includegraphics[scale=0.8]{4Layer.pdf}
 %\includegraphics[scale=0.8]{5Layer.pdf}
 %\includegraphics[scale=0.8]{6Layer.pdf}
-\caption{Polar distribution of the vector $[\hat{\mathbf{n}}_{m}]= 
+\caption{Polar distribution of the vector $[\hat{\mathbf{k}}_{m}]= 
 \begin{pmatrix}
 \cos(m\phi_{m})	&	\!\!\sin(m\phi_{m})
 \end{pmatrix}$ used to describe the classical ground state of the system.}
@@ -558,9 +558,9 @@ which diagonalizes the kinetic term, and where $\hat{\mathbf{z}}$ is the normal 
 \end{pmatrix}$, and the exchange term is expanded as
 \begin{eqnarray}
 \label{eq:Spin-dot-product-along-k}
-\hat{\mathbf{s}}_{\mathbf{k}_{1}}\!\! &\cdot& \hat{\mathbf{s}}_{\mathbf{k}_{2}} 
+\hat{\mathbf{s}}_{\mathbf{k}}\!\! &\cdot& \hat{\mathbf{s}}_{\mathbf{k}'} 
 \\ &=& \nonumber 
-\left( -\hat{s}_{\mathbf{k}_{1}}^{z} \hat{\mathbf{k}_{1}} + \hat{s}_{\mathbf{k }}^{x} \hat{\mathbf{z }} + \hat{s}_{\mathbf{k }}^{y} \hat{\boldsymbol{\varphi}} \right) \cdot \left( -\hat{s}_{\mathbf{k'}}^{z} \hat{\mathbf{k'}} + \hat{s}_{\mathbf{k'}}^{x} \hat{\mathbf{z }} + \hat{s}_{\mathbf{k'}}^{y} \hat{\boldsymbol{\varphi}}'\right) 
+\left( -\hat{s}_{\mathbf{k}_{1}}^{z} \hat{\mathbf{k}} + \hat{s}_{\mathbf{k }}^{x} \hat{\mathbf{z }} + \hat{s}_{\mathbf{k }}^{y} \hat{\boldsymbol{\varphi}} \right) \cdot \left( -\hat{s}_{\mathbf{k'}}^{z} \hat{\mathbf{k'}} + \hat{s}_{\mathbf{k'}}^{x} \hat{\mathbf{z }} + \hat{s}_{\mathbf{k'}}^{y} \hat{\boldsymbol{\varphi}}'\right) 
 \\ &=& \nonumber 
 \left(
 \hat{s}_{\mathbf{k }}^{z}\hat{s}_{\mathbf{k'}}^{z}+ \hat{s}_{\mathbf{k }}^{y}\hat{s}_{\mathbf{k'}}^{y} \right)\cos \phi_{\mathbf{k}\mathbf{k'}} + 
@@ -1025,27 +1025,7 @@ B_{n' }^{\ell}.
 \end{equation}
 Therefore the problem reduces to a set of bosons moving in an effective one dimensional radial space of $N$ sites for each angular momentum channel which in general needs to be solved numerically.	
 
-In that way, each dataset obtained from diagonalizing a $N\times N$ matrix is labelled by the intensity and spreading of the Gaussian potential $V_{0}$ and $a$, respectively, the number of layers $m$, the angular momentum $\ell$ and the number of sites in the radial coordinate $N$.
-
-\section{Bilayer graphene in the channel $\ell=0$}
-We begin with the sub-block $\ell = 0$ of the Hamiltonian 
-\begin{equation}
-H_{HP}^{0} = 
-\sum_{mm'0}
-B_{m}^{0\textcolor{black}{\dagger}}
-H_{mm'}^{0}
-B_{m'}^{0}.
-\end{equation}
-with $V_{0}=1$, $a=1$, $\mathcal{K}=1$ and $m=2$. The self-energy employed to calculate the diagonal elements is shown in \S\ref{sect:Self-Energy}. 
-
-The main result we are interested in is the eigenvalue whose imaginary part is the greatest. We diagonalized $H_{HP}^{0}$ for sizes $N=5$, 10, 20, 50, 100, 200, 500 and 1000, in which we obtained only one complex eigenvalue, whose imaginary part is depicted in the Fig. \ref{fig:MaxImEigVal}. Below $N=5$ there is no imaginary eigenvalue. 
-
-\begin{figure}[h]
-\centering
-\includegraphics[scale=0.6]{MaxImEigVal.pdf}
-\caption{Magnitude of the imaginary part of the only complex eigenvalue vs. number of sites $N$ along radial coordinate $k$.}
-\label{fig:MaxImEigVal}
-\end{figure}
+In that way, each dataset obtained from diagonalizing a $N\times N$ matrix is labelled by the coupling constant $g_{\mathcal{K}}$ and spreading $a_{\mathcal{K}}$ of the Gaussian potential, the number of layers $m$, the angular momentum $\ell$ and the number of sites in the radial coordinate $N$.
 
 
 \begin{comment}
