@@ -27,6 +27,9 @@
 \pgfplotsset{compat=1.3}
 \usetikzlibrary{3d,calc}
 
+\newcommand{\largepentagon}{\large{\pentagon}}
+\newcommand{\largevarhexagon}{\large{\varhexagon}}
+
 \newcommand{\tstar}[5]{% inner radius, outer radius, tips, rot angle, options
 \pgfmathsetmacro{\starangle}{360/#3}
 \draw[#5] (#4:#1)
@@ -73,7 +76,8 @@
 \usepackage{verbatim}
 \usepackage{amsmath}
 \usepackage{amssymb}
-\usepackage{wasysym}
+\usepackage{wasysym}%pentagons, hexagons, octagons
+\usepackage{ifsym}%
 \usepackage[caption=false]{subfig}
 \usepackage{url}
 \usepackage{bbold}
@@ -126,8 +130,34 @@
   \reflectbox{\rotatebox[origin=c]{180}{$\circlearrowleft$}}}}
 \def\CircleArrowright{\ensuremath{%
   \reflectbox{\rotatebox[origin=c]{180}{$\circlearrowright$}}}}
+  
+\newcounter{countitems}
+\newcounter{nextitemizecount}
+\newcommand{\setupcountitems}{%
+  \stepcounter{nextitemizecount}%
+  \setcounter{countitems}{0}%
+  \preto\item{\stepcounter{countitems}}%
+}
+\makeatletter
+\newcommand{\computecountitems}{%
+  \edef\@currentlabel{\number\c@countitems}%
+  \label{countitems@\number\numexpr\value{nextitemizecount}-1\relax}%
+}
+\newcommand{\nextitemizecount}{%
+  \getrefnumber{countitems@\number\c@nextitemizecount}%
+}
+\newcommand{\previtemizecount}{%
+  \getrefnumber{countitems@\number\numexpr\value{nextitemizecount}-1\relax}%
+}
+\makeatother    
+\newenvironment{AutoMultiColItemize}{%
+\ifnumcomp{\nextitemizecount}{>}{3}{\begin{multicols}{2}}{}%
+\setupcountitems\begin{itemize}}%
+{\end{itemize}%
+\unskip\computecountitems\ifnumcomp{\previtemizecount}{>}{3}{\end{multicols}}{}}
 
 
+\hyphenation{dia-go-na-li-za-tion}
 
 \begin{document}
 
@@ -1025,7 +1055,84 @@ B_{n' }^{\ell}.
 \end{equation}
 Therefore the problem reduces to a set of bosons moving in an effective one dimensional radial space of $N$ sites for each angular momentum channel which in general needs to be solved numerically.	
 
-In that way, each dataset obtained from diagonalizing a $N\times N$ matrix is labelled by the coupling constant $g_{\mathcal{K}}$ and spreading $a_{\mathcal{K}}$ of the Gaussian potential, the number of layers $m$, the angular momentum $\ell$ and the number of sites in the radial coordinate $N$.
+In that way, each dataset obtained from diagonalizing a $2N\times 2N$ matrix is labelled by the coupling constant $g_{\mathcal{K}}$ and spreading $a_{\mathcal{K}}$ of the Gaussian potential, the number of layers $m=2$ fixed for bilayer graphene, the angular momentum $\ell$ and the number of sites in the radial coordinate $N$.
+
+\section{Numerical results}
+
+The solution of the system is found by using exact diagonalization on the $2N\times 2N$ matrix composed by the matrix elements of the Hamiltonian for the hopping ($b^{\textcolor{black}{\dagger}}_{k_{1}}\!b^{\textcolor{white}{\dagger}}_{k_{2}}$) and pairing ($b^{\textcolor{white}{\dagger}}_{k_{1}}\!b^{\textcolor{white}{\dagger}}_{k_{2}},$ $b^{\textcolor{black}{\dagger}}_{k_{1}}\!b^{\textcolor{black}{\dagger}}_{k_{2}}$) terms. The parameters of the Hamiltonian are:
+\begin{itemize}
+\item Angular momentum $\ell=$ 0, 1, 2, 3, 4, 5.
+\item Systen size $N=$ 100, 200, 300, 400, 500.
+\item Coupling constant $a_{\mathcal{K}}=$ 0.01, 0.02, 0.05, 0.10.
+\item Reciprocal spreading $a_{\mathcal{K}}=$ 1, 2, 5, 10.
+\end{itemize}
+and the UV-cutoff being set to the unity, $\mathcal{K}=1$ and $E_{\mathrm{UV}}=1$.
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.6]{PlotReportL0}
+\caption{$\triangle$ ($N=100$), $\square$ ($N=200$), $\largepentagon$ ($N=300$), $\largevarhexagon$ ($N=400$), and $\octagon$ ($N=500$). The extrapolation is $\ocircle$ for $N\rightarrow \infty$. }
+\label{fig:PlotReportL0}
+\end{figure}
+
+
+The Hamiltonian was diagonalized for each one of the 480 sets from the combinations of the parameters $\{\ell, N, g_{\mathcal{K}}, a_{\mathcal{K}}\}$, and then the energy spectra were examined looking for non-vanishing imaginary parts $\mathrm{Im}[E(k)]$ pointing out to an unstability in the modes of the system. The only two angular momentum channels that got non-vanishing imaginary parts in their eigenvalue spectra were $\ell=0$ and $\ell=2$, both showing only one eigenvalue with imaginary part (with the corresponding complementary eigenvalue with the opposite sign) at the smallest momentum, 
+\begin{equation}
+\mathrm{Im}[E(k_{\mathrm{min}})] = \mathrm{Im}\left[E\left(\frac{\mathcal{K}}{N}\right)\right] \neq 0,
+\end{equation}
+shown in the Figs. \ref{fig:PlotReportL0} and \ref{fig:PlotReportL2} for $\ell=0$ and $\ell=2$, respectively. Since the imaginary eigenvalues show a finite asympthotic trend when $k_{\mathrm{min}}\rightarrow 0$, i.e., $N\rightarrow\infty$, the five values obtain for each system size were useful to get the infinite size limit shown as the circles $\ocircle$ in the forementioned figures. 
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.6]{PlotReportL2}
+\caption{$\triangle$ ($N=100$), $\square$ ($N=200$), $\largepentagon$ ($N=300$), $\largevarhexagon$ ($N=400$), and $\octagon$ ($N=500$). The extrapolation is $\ocircle$ for $N\rightarrow \infty$. }
+\label{fig:PlotReportL2}
+\end{figure}
+
+
+The main differences between $\ell=0$ and $\ell=2$ channels root on the relative size of its imaginary eigenvalues, being small for the latter channel, almost the half of those ones for the former channel. On the other hand, the channels show expected behaviors like the increase of $\mathrm{Im}[E(k_{\mathrm{min}})]$ for larger $g_{\mathcal{K}}$ meaning stronger interactions, and the suppression for larger $a_{\mathcal{K}}$ meaning a wider spreading of the potential, turning out in a weaker interaction and consequently, smaller values for $\mathrm{Im}[E(k_{\mathrm{min}})]$.
+
+The infinite size limits for $\mathrm{Im}[E(k_{\mathrm{min}}\rightarrow 0)]$ are summarized in the Fig. \ref{fig:PlotReport} using the same color code and legends of Figs. \ref{fig:PlotReportL0} and \ref{fig:PlotReportL2}. 
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.6]{PlotReport}
+\caption{$\triangle$ ($N=100$), $\square$ ($N=200$), $\largepentagon$ ($N=300$), $\largevarhexagon$ ($N=400$), and $\octagon$ ($N=500$). The extrapolation is $\ocircle$ for $N\rightarrow \infty$. }
+\label{fig:PlotReport}
+\end{figure}
+
+
+\section{Lorem ipsum}
+
+The Hamiltonian was diagonalized for each one of the 480 sets from the combinations of the parameters $\{\ell, N, g_{\mathcal{K}}, a_{\mathcal{K}}\}$, and then the energy spectra were examined looking for non-vanishing imaginary parts $\mathrm{Im}[E(k)]$ pointing out to an unstability in the modes of the system. The only two angular momentum channels that got non-vanishing imaginary parts in their eigenvalue spectra were $\ell=0$ and $\ell=2$, both showing only one eigenvalue with imaginary part (with the corresponding complementary eigenvalue with the opposite sign) at the smallest momentum, 
+\begin{equation}
+\mathrm{Im}[E(k_{\mathrm{min}})] = \mathrm{Im}\left[E\left(\frac{\mathcal{K}}{N}\right)\right] \neq 0,
+\end{equation}
+shown in the Figs. \ref{fig:PlotReportL0} and \ref{fig:PlotReportL2} for $\ell=0$ and $\ell=2$, respectively. Since the imaginary eigenvalues show a finite asympthotic trend when $k_{\mathrm{min}}\rightarrow 0$, i.e., $N\rightarrow\infty$, the five values obtain for each system size were useful to get the infinite size limit shown as the circles $\ocircle$ in the forementioned figures. 
+
+The main differences between $\ell=0$ and $\ell=2$ channels root on the relative size of its imaginary eigenvalues, being small for the latter channel, almost the half of those ones for the former channel. On the other hand, the channels show expected behaviors like the increase of $\mathrm{Im}[E(k_{\mathrm{min}})]$ for larger $g_{\mathcal{K}}$ meaning stronger interactions, and the suppression for larger $a_{\mathcal{K}}$ meaning a wider spreading of the potential, turning out in a weaker interaction and consequently, smaller values for $\mathrm{Im}[E(k_{\mathrm{min}})]$.
+
+
+
+The Hamiltonian was diagonalized for each one of the 480 sets from the combinations of the parameters $\{\ell, N, g_{\mathcal{K}}, a_{\mathcal{K}}\}$, and then the energy spectra were examined looking for non-vanishing imaginary parts $\mathrm{Im}[E(k)]$ pointing out to an unstability in the modes of the system. The only two angular momentum channels that got non-vanishing imaginary parts in their eigenvalue spectra were $\ell=0$ and $\ell=2$, both showing only one eigenvalue with imaginary part (with the corresponding complementary eigenvalue with the opposite sign) at the smallest momentum, 
+\begin{equation}
+\mathrm{Im}[E(k_{\mathrm{min}})] = \mathrm{Im}\left[E\left(\frac{\mathcal{K}}{N}\right)\right] \neq 0,
+\end{equation}
+shown in the Figs. \ref{fig:PlotReportL0} and \ref{fig:PlotReportL2} for $\ell=0$ and $\ell=2$, respectively. Since the imaginary eigenvalues show a finite asympthotic trend when $k_{\mathrm{min}}\rightarrow 0$, i.e., $N\rightarrow\infty$, the five values obtain for each system size were useful to get the infinite size limit shown as the circles $\ocircle$ in the forementioned figures. 
+
+The main differences between $\ell=0$ and $\ell=2$ channels root on the relative size of its imaginary eigenvalues, being small for the latter channel, almost the half of those ones for the former channel. On the other hand, the channels show expected behaviors like the increase of $\mathrm{Im}[E(k_{\mathrm{min}})]$ for larger $g_{\mathcal{K}}$ meaning stronger interactions, and the suppression for larger $a_{\mathcal{K}}$ meaning a wider spreading of the potential, turning out in a weaker interaction and consequently, smaller values for $\mathrm{Im}[E(k_{\mathrm{min}})]$.
+
+
+
+The Hamiltonian was diagonalized for each one of the 480 sets from the combinations of the parameters $\{\ell, N, g_{\mathcal{K}}, a_{\mathcal{K}}\}$, and then the energy spectra were examined looking for non-vanishing imaginary parts $\mathrm{Im}[E(k)]$ pointing out to an unstability in the modes of the system. The only two angular momentum channels that got non-vanishing imaginary parts in their eigenvalue spectra were $\ell=0$ and $\ell=2$, both showing only one eigenvalue with imaginary part (with the corresponding complementary eigenvalue with the opposite sign) at the smallest momentum, 
+\begin{equation}
+\mathrm{Im}[E(k_{\mathrm{min}})] = \mathrm{Im}\left[E\left(\frac{\mathcal{K}}{N}\right)\right] \neq 0,
+\end{equation}
+shown in the Figs. \ref{fig:PlotReportL0} and \ref{fig:PlotReportL2} for $\ell=0$ and $\ell=2$, respectively. Since the imaginary eigenvalues show a finite asympthotic trend when $k_{\mathrm{min}}\rightarrow 0$, i.e., $N\rightarrow\infty$, the five values obtain for each system size were useful to get the infinite size limit shown as the circles $\ocircle$ in the forementioned figures. 
+
+The main differences between $\ell=0$ and $\ell=2$ channels root on the relative size of its imaginary eigenvalues, being small for the latter channel, almost the half of those ones for the former channel. On the other hand, the channels show expected behaviors like the increase of $\mathrm{Im}[E(k_{\mathrm{min}})]$ for larger $g_{\mathcal{K}}$ meaning stronger interactions, and the suppression for larger $a_{\mathcal{K}}$ meaning a wider spreading of the potential, turning out in a weaker interaction and consequently, smaller values for $\mathrm{Im}[E(k_{\mathrm{min}})]$.
+
+
 
 
 \begin{comment}
