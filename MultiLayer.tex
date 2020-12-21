@@ -277,7 +277,7 @@ where $A$ is the total area of the system.
 \label{fig:Q=0-excitons}
 \end{figure}
 
-The optical relevant excitations of the system correspond to the $\mathbf{Q}=0$ excitons, as shown in FIG. \ref{fig:Q=0-excitons}. These ones do not modify the momentum label of the electron when it jumps from the valence to the conduction band, and consequently, any interaction between a pair excitons at momenta $\mathbf{k}_{1}$ and $\mathbf{k}_{2}$ should only interchange their momentum labels. In other words, by having into account only $\mathbf{Q}=0$ excitations, the Hilbert space of the system results restricted onto the singly-occupied sites in the momentum lattice. A good operator to describe the singly-occupied constrain is
+The optical relevant excitations of the system correspond to the $\mathbf{Q}=0$ excitons, as shown in Fig. \ref{fig:Q=0-excitons}. These ones do not modify the momentum label of the electron when it jumps from the valence to the conduction band, and consequently, any interaction between a pair excitons at momenta $\mathbf{k}_{1}$ and $\mathbf{k}_{2}$ should only interchange their momentum labels. In other words, by having into account only $\mathbf{Q}=0$ excitations, the Hilbert space of the system results restricted onto the singly-occupied sites in the momentum lattice. A good operator to describe the singly-occupied constrain is
 \begin{equation}
 \label{eq:SU(2)-spin-operator}
 s^{\mu}_{\mathbf{k }} = \sum_{\sigma \sigma'} 
@@ -442,7 +442,7 @@ E_{\mathrm{UV} }&
 \end{split}
 %}^{Ferromag.\;exchange}
 \end{equation}
-where the first term represents a $m$-folded spin vortex (see FIG. \ref{fig:Classical-gound-state}) and the second term is an effective ferromagnetic exchange. 
+where the first term represents a $m$-folded spin vortex (see Fig. \ref{fig:Classical-gound-state}) and the second term is an effective ferromagnetic exchange. 
 
 \section{Expansion about the non-interacting ground state}
 
@@ -974,7 +974,7 @@ I_{\frac{3}{2}}\!\!
 ,
 \end{split}
 \end{equation}
-where $n$ is an odd integer (see the FIG. \ref{fig:Multilayer-Self-Energies} for the cases of monolayer, bilayer and trilayer graphene). Their corresponding small-momentum regimes are described by
+where $n$ is an odd integer (see the Fig. \ref{fig:Multilayer-Self-Energies} for the cases of monolayer, bilayer and trilayer graphene). Their corresponding small-momentum regimes are described by
 \begin{equation}
 \begin{split}
 \Sigma^{1}\!(\mathbf{k })
@@ -1005,132 +1005,367 @@ where $n$ is an odd integer (see the FIG. \ref{fig:Multilayer-Self-Energies} for
 ,
 \end{split}
 \end{equation}
-Notice that the dependence on $a_{\mathcal{K}}$ of the lowest-expansion-term coefficient for $\Sigma^{1}(\mathbf{k })$ is inverse to the dependence of $\Sigma^{3}(\mathbf{k })$. Even more, the lowest-expansion-term coefficient for $\Sigma^{2}(\mathbf{k })$ is independent of $a_{\mathcal{K}}$, as it is shown in FIG. \ref{fig:Multilayer-Self-Energies-Taylor}. 
+Notice that the dependence on $a_{\mathcal{K}}$ of the lowest-expansion-term coefficient for $\Sigma^{1}(\mathbf{k })$ is inverse to the dependence of $\Sigma^{3}(\mathbf{k })$. Even more, the lowest-expansion-term coefficient for $\Sigma^{2}(\mathbf{k })$ is independent of $a_{\mathcal{K}}$, as it is shown in Fig. \ref{fig:Multilayer-Self-Energies-Taylor}. 
 
 \begin{figure}[h]
 \centering
 \includegraphics[scale=0.6]{SelfEnergyPlot123.pdf}
-\caption{Hartree-Fock self-energy $\Sigma^{m}(\mathbf{k})$ for monolayer ($m=1$, red), bilayer ($m=2$, green) and trilayer ($m=3$, blue) graphene. The dashing of the plots represent the value of the spreading parameter: $a_{\mathcal{K}}=1$ (dotted), $a_{\mathcal{K}}$ (dashed), and $a_{\mathcal{K}}=3$ (solid), while the horizontal black lines represent the asymptotic limit $\Sigma^{m}(\infty)$ the three values of $a_{\mathcal{K}}$. The little rectangle at the origin is zoomed in in FIG. \ref{fig:Multilayer-Self-Energies-Taylor}.}
+\caption{Hartree-Fock self-energy $\Sigma^{m}(\mathbf{k})$ for monolayer ($m=1$, red), bilayer ($m=2$, green) and trilayer ($m=3$, blue) graphene. The dashing of the plots represent the value of the spreading parameter: $a_{\mathcal{K}}=1$ (dotted), $a_{\mathcal{K}}$ (dashed), and $a_{\mathcal{K}}=3$ (solid), while the horizontal black lines represent the asymptotic limit $\Sigma^{m}(\infty)$ the three values of $a_{\mathcal{K}}$. The little rectangle at the origin is zoomed in Fig. \ref{fig:Multilayer-Self-Energies-Taylor}.}
 \label{fig:Multilayer-Self-Energies}
+
 \end{figure}
 \begin{figure}[h]
 \centering
 \includegraphics[scale=0.6]{SelfEnergyPlot123Taylor.pdf}
-\caption{Low-momentum limit for $\Sigma^{m}(\mathbf{k})$ in monolayer, bilayer and trilayer graphene. The legends are the same shown in FIG. \ref{fig:Multilayer-Self-Energies} with the additional bolded curves representing the lowest-order expantion terms and labels of $a_{\mathcal{K}}$ to help with the interpretation of the plot. Notice that the low-momentum limit of $\Sigma^{2}(\mathbf{k})$ is independent of $a_{\mathcal{K}}$.}
+\caption{Low-momentum limit for $\Sigma^{m}(\mathbf{k})$ in monolayer, bilayer and trilayer graphene. The legends are the same shown in Fig. \ref{fig:Multilayer-Self-Energies} with the additional bolded curves representing the lowest-order expansion terms and labels of $a_{\mathcal{K}}$ to help with the interpretation of the plot. Notice that the low-momentum limit of $\Sigma^{2}(\mathbf{k})$ is independent of $a_{\mathcal{K}}$.}
 \label{fig:Multilayer-Self-Energies-Taylor}
 \end{figure}
 
-
 \section{Angular momentum channels and parametrization of the radial coordinate}
-In order to exploit the emergent rotational invariance in the thermodynamic limit, we use the following polar parametrization $\mathbf{z}=(k,\phi)$:
+
+\subsection{General coordinate transformations on the continuum limit}
+We begin by taking the continuum limit of the Hamiltonian in the Bogoliubov basis \eqref{eq:HP-Hamiltonian}, for this purpose it is convenient to define a rescaled Hamiltonian and boson creation operator as follows: 
+\begin{equation}
+\begin{split}
+    B(\mathbf{k}) &\equiv \lim_{\Delta k\rightarrow 0} \frac{B_{\mathbf{k}}}{\sqrt{\Delta k_{x}\Delta k_{y}}},\\
+    H(\mathbf{k },\mathbf{k'}) &\equiv \lim_{\Delta k \rightarrow 0}
+    \frac{H_{\mathbf{kk'}}}{\Delta k_{x}\Delta k_{y}},
+\end{split}
+\end{equation}
+where $\Delta k_{x,y}=2\pi/\sqrt{A}$, $A$ is the system area that we take to be a square. The above re-definitions allow to obtain the following continuum commutation relations for the boson operators:
+\begin{equation*}
+    \left[
+B(\mathbf{k }),
+B^{\textcolor{black}{\dagger}}(\mathbf{k'})
+\right] = \lim_{\Delta k\rightarrow 0}  \mathbb{I}\frac{\delta_{\mathbf{k k'}}}{(\Delta k)^2}
+    = \mathbb{I}\delta^{2}(\mathbf{k-k'}),
+\end{equation*}
+where 
+\begin{equation}
+\mathbb{I} = 
+\begin{pmatrix}
+1	&	0	\\	0	&	-1	
+\end{pmatrix}.
+\end{equation}
+With these rescalings we can convert the sums over momenta into continuum integrals, obtaining the continuum version of the boson Hamiltonian $H_{HP}$ from Eq. \eqref{eq:HP-Hamiltonian}:
+\begin{equation*}
+\begin{split}
+\mathcal{H}_{HP} =& \lim_{\Delta k\rightarrow 0} \int \!\!
+\frac{d^{2}k }{(\Delta k)^2}
+\frac{d^{2}k'}{(\Delta k)^2}
+B_{\mathbf{k }}^{\textcolor{black}{\dagger}}
+H_{\mathbf{k } \mathbf{k'}}
+B_{\mathbf{k'}}^{\textcolor{white}{\dagger}}\\
+ =& \lim_{\Delta k\rightarrow 0} (\Delta k)^4 \!\! \int \!\!
+\frac{d^{2}k }{(\Delta k)^2}
+\frac{d^{2}k'}{(\Delta k)^2}
+%\frac{
+B_{\sigma }^{\textcolor{black}{\dagger}}(\mathbf{k })
+%}{\Delta k}
+%\frac{
+H(\mathbf{k },\mathbf{k'})
+%}{(\Delta k)^2}
+%\frac{
+B_{\sigma 
+}^{\textcolor{white}{\dagger}}(\mathbf{k'})
+%}{\Delta k}
+\\
+ =& \int \! d^{2}k d^{2}k'
+%\frac{
+\hat{B}_{\sigma }^{\textcolor{black}{\dagger}}(\mathbf{k })
+%}{\Delta k}
+%\frac{
+H(\mathbf{k },\mathbf{k'})
+%}{(\Delta k)^2}
+%\frac{
+\hat{B}_{\sigma 
+}^{\textcolor{white}{\dagger}}(\mathbf{k'})
+.
+\end{split}
+\end{equation*}
+
+From this continuum Hamiltonian we can perfom a change of coordinates $\mathbf{k}(\mathbf{z})$ with Jacobian $D(\mathbf{z})=|\frac{\partial \mathbf{k}}{\partial \mathbf{z}}|$ with the following redefinitions:
+\begin{equation}
+\begin{split}
+    B(\mathbf{z}) &= \sqrt{D(\mathbf{z})} 
+    B(\mathbf{k}\Scale[0.9]{(\mathbf{z})}),
+    \\
+    H(\mathbf{z },\mathbf{z'})  &= \sqrt{D(\mathbf{z})D(\mathbf{z'})}
+    H(\mathbf{k\Scale[0.9]{(\mathbf{z })}},\mathbf{k\Scale[0.9]{(\mathbf{z'})}}),
+\end{split}
+\end{equation}
+whose purpose is to mantain the same form of the commutation relations and the Hamiltonian as follows:
+\begin{equation*}
+\begin{split}
+&\left[
+B(\mathbf{z }),B^{\textcolor{black}{\dagger}}(\mathbf{z'}) \right] =
+\mathbb{I}\delta^{2}(\mathbf{z-z'}),
+\\
+&\mathcal{H}_{HP}
+ = \int d^{2}z d^{2}z'
+%\frac{
+\hat{B}_{\sigma }^{\textcolor{black}{\dagger}}(\mathbf{z })
+%}{\Delta k}
+%\frac{
+H(\mathbf{z },\mathbf{z'})
+%}{(\Delta k)^2}
+%\frac{
+\hat{B}_{\sigma 
+}^{\textcolor{white}{\dagger}}(\mathbf{z'})
+.
+\end{split}
+\end{equation*}
+
+Lastly, on the new coordinate system, we proceed to re-discretize the expressions, as follows:
+\begin{equation}
+\begin{split}
+    B_{\mathbf{z}} &\leftarrow \sqrt{\Delta z_{1}\Delta z_{2}} 
+    B(\mathbf{z}),
+    \\
+    H_{\mathbf{z },\mathbf{z'}} &\leftarrow \Delta z_{1}\Delta z_{2} \,
+    H(\mathbf{z},\mathbf{z'}),
+\end{split}
+\end{equation}
+that yield the new discrete commutation relations and Hamiltonian
+\begin{equation*}
+\begin{split}
+\left[
+B^{\textcolor{white}{\dagger}}_{\mathbf{z }},
+B^{\textcolor{black}{\dagger}}_{\mathbf{z'}}
+\right] &= 
+\mathbb{I} \delta_{\mathbf{zz'}} 
+\leftarrow \mathbb{I} 
+\Delta k_{1} \Delta k_{2}  
+\delta^{2}(\mathbf{z-z'})
+%\\
+%&= \mathbb{I} 
+%\Delta k_{1} 
+%\delta(z_{1}-z'_{1}) \,
+%\Delta k_{2}  
+%\delta(z_{2}-z'_{2})
+%\\
+%&= \mathbb{I}
+%\delta_{z_{1}z_{1}'}
+%\delta_{z_{2}z_{2}'},
+\end{split}
+\end{equation*}
+\begin{equation}
+\label{eq:Supp:Complete-Hamiltonian-Bogoliubov}
+H_{HP} = \sum_{\mathbf{z},\mathbf{z'}}
+B_{\mathbf{z }}^{\textcolor{black}{\dagger}}
+H_{\mathbf{z }\mathbf{z'}}
+B_{\mathbf{z'}}^{\textcolor{white}{\dagger}}.
+\end{equation}
+Therefore, in summary, the relation between operators and the Hamiltonian matrix in the new lattice defined by the discretization of the coordinates $\mathbf{z}(\mathbf{k})$, with the original operators and Hamiltonian of the square lattice is:
+\begin{equation}
+\label{eq:Supp:Lattice-transformations}
+\begin{split}
+B_{\mathbf{z}} &= \sqrt{D(\mathbf{z})\frac{\Delta z_{1}\Delta z_{2}}{\Delta k_{x}\Delta k_{y}}} 
+B_{\mathbf{k}}  \\
+H_{\mathbf{z }\mathbf{z'}} &= \sqrt{D(\mathbf{z })D(\mathbf{z'})}
+\frac{\Delta z_{1}\Delta z_{2}}{\Delta k_{x}\Delta k_{y}}
+H_{\mathbf{k }\mathbf{k'}}
+\end{split}
+\end{equation}
+The idea is that the Hamiltonian $H_{HP}$ in Eq. \eqref{eq:Supp:Complete-Hamiltonian-Bogoliubov} will produce the same physical results as the one in the square lattice in Eq. \eqref{eq:HP-Hamiltonian} of the main text in the thermodynamic limit.
+
+\subsection{Polar re-discretization}
+
+We choose $\mathbf{z}=(k,\phi)$ where $k$ is the radius of the momentum vector and $\phi$ its polar angle. We then discretize the radial direction in two different ways specified below to check numerically that the precise form of the discretization is not crucial to the results. Therefore we choose the radial coordinate as:
+\begin{equation}
+\label{eq:Supp:Tangential-radius}
+\begin{split}
+    k &= k(\theta) \rightarrow k_{n} = k(\theta_{n},\Delta \theta), 
+\end{split}
+\end{equation}
+where $\theta$ is another parameter labeling the radial coordinate that we will choose to be uniformly discretized. The corresponding Jacobian for this parametrization is:
+\begin{equation}
+\label{eq:Supp:Jacobian}
+\begin{split}
+    D(\theta) &= k(\theta)\frac{dk(\theta)}{d\theta}.
+\end{split}
+\end{equation}
+
+\begin{figure}[b]
+\centering
+\includegraphics[scale=0.8]{SquarePolarLattice.pdf}
+\caption{Depiction of the re-discretization procedure, from the initial square through the continuum limit of the system to the polar lattice and the integration of the angular coordinate in angular momentum channels reducing the dimensionality of the system to 1.}
+\end{figure}
+
+The parameters $\theta$ and $\phi$ are uniformly discretized as follows:
+\begin{equation}
+\label{eq:Supp:Discretization-of-angles}
+\begin{split}
+\theta_{n} &= n \Delta\theta, \quad m \in \{1,\cdots ,N\}, \\
+  \phi_{l} &= l \Delta\phi  , \quad \:n \,\in \{-L,\cdots ,L\},
+\end{split}
+\end{equation}
+where $N$ is the total number of slices of the radial coordinate and $2L+1$ is the total number of slices for the angular coordinate, and
+\begin{equation}
+\label{eq:Discrete-angle-units}
+\Delta \theta = \Delta \theta(N), 
+\quad
+\Delta \phi = \frac{2\pi}{2L + 1}.
+\end{equation}
+The actual form of $k(\theta_{n},\Delta \theta)$ is determined by the particular discretization used to calculate the matrix elements of the Hamiltonian (more details in \S \ref{sect:description-num-proc}).
+Therefore, the new polar lattice is determined by the sites $\mathbf{z}=(k_{n},\phi_{l})$ where:
 \begin{equation}
 \label{eq:Tangential-radius}
 \begin{split}
-    k_{n} &= n\Delta k,
+    k_{n} &= k(n,\Delta \theta),
     \quad \phi_{l} = l\Delta \phi,
 \end{split}
 \end{equation}
-where $(k_n,\phi_l)$ are the polar coordinates of a given site in the polar momentum lattice, $\Delta k = \mathcal{K}/(N+1)$ with $n={1,...,N}$, and $\Delta \phi = 2\pi/(2L+1)$ with $l={0,...,2L}$. 
 
-Because the Hamiltonian matrix $H_{\mathbf{k k'}}$ that enters into the Hamiltonina $H_{HP}$ in Eq. \eqref{eq:HP-Hamiltonian} of the main text only depends on the difference between the polar angles $\phi-\phi'$ we have conservation of the angular momentum $\ell$ of the bosons. Consequently, we perform Fourier transforms on the polar angle $\phi_{l}$ for the fields $B_{m}^{l\textcolor{white}{\dagger}}$ and the matrix $H_{nn'}^{ll'}$
+
+After replacing \eqref{eq:Supp:Tangential-radius} and  \eqref{eq:Supp:Jacobian} into \eqref{eq:Supp:Lattice-transformations} we get the expression for $B_{\mathbf{k}}$ and $H_{\mathbf{k k'}}$ in the polar lattice
+\begin{equation}
+\label{eq:Supp:Lattice-transformations-1}
+\begin{split}
+B_{n}^{l\textcolor{white}{\dagger}} &=
+\frac{\mathcal{K}\sqrt{A}}{2\pi}
+\sqrt{\Delta \theta \Delta \phi D_{n} }
+B_{\mathbf{k}_{nl}}^{\textcolor{black}{\dagger}},  \\
+H_{nn'}^{ll'} &= 
+\frac{\mathcal{K}^{2}A}{(2\pi)^{2}}
+\Delta \theta \Delta \phi 
+\sqrt{D_{n}D_{n'}}
+H_{\mathbf{k}_{nl}\mathbf{k}_{n'l'}},
+\end{split}
+\end{equation}
+where $D_{n}=D(n\Delta \theta)$ and $\mathbf{k}_{nl}=\mathbf{k}(\theta_{n},\phi_{l})$. Finally, the whole Hamiltonian is
+\begin{equation}
+H_{HP} = \sum_{nl}\sum_{n'l'}
+B_{n }^{l \textcolor{black}{\dagger}}
+H_{nn'}^{ll'}
+B_{n'}^{l'\textcolor{white}{\dagger}}.
+\end{equation}
+
+\subsection{Angular momentum channels}
+Because the Hamiltonian matrix $H_{\mathbf{k k'}}$ that enters into the Hamiltonina $H_{HP}$ in Eq. \eqref{eq:HP-Hamiltonian} of the main text only depends on the difference between the polar angles $\phi-\phi'$ we have conservation of the angular momentum $l$ of the bosons. Consequently, we perform Fourier transforms on the polar angles for the fields $B_{mn}$ and the matrix $H_{mn,m'n'}$
 \begin{equation}
 \begin{split}
-B_{m}^{l\textcolor{white}{\dagger}} &= 
+B_{n}^{l\textcolor{white}{\dagger}} &= 
 \frac{1}{\sqrt{2L+1}}\sum_{\ell=-L}^{L}
-e^{-i \ell \phi_{l}}B_{m}^{\ell} ,
+e^{-i \ell \phi_{l}}B_{n}^{\ell} ,
 \\
 H_{nn'}^{ll'} &= \sum_{\ell=-L}^{L}
 e^{-i \ell (\phi_{l }-\phi_{l'})}
 H_{mm'}^{\ell},
 \end{split}
 \end{equation}
-such that the total Bogoliubov Hamiltonian decomposes into a sum of decoupled angular mommentum channels, as follows:
+such that the total Bogoliubov Hamiltonian decomposes into a direct sum for different angular mommentum channels, as follows:
 \begin{equation}
-H_{HP}^{\textcolor{white}{\ell}} = \sum_{\ell}
-H_{HP}^{\ell} = 
-\sum_{nn'\ell}
+H_{HP} = \sum_{nn'\ell}
 B_{n  }^{\ell\textcolor{black}{\dagger}}
 H_{nn'}^{\ell}
 B_{n' }^{\ell}.
 \end{equation}
-Therefore the problem reduces to a set of bosons moving in an effective one dimensional radial space of $N$ sites for each angular momentum channel which in general needs to be solved numerically.	
 
 In that way, each dataset obtained from diagonalizing a $2N\times 2N$ matrix is labelled by the coupling constant $g_{\mathcal{K}}$ and spreading $a_{\mathcal{K}}$ of the Gaussian potential, the number of layers $m=2$ fixed for bilayer graphene, the angular momentum $\ell$ and the number of sites in the radial coordinate $N$.
 
+
+
 \section{Numerical results}
 
-The solution of the system is found by using exact diagonalization on the $2N\times 2N$ matrix composed by the matrix elements of the Hamiltonian for the hopping ($b^{\textcolor{black}{\dagger}}_{k_{1}}\!b^{\textcolor{white}{\dagger}}_{k_{2}}$) and pairing ($b^{\textcolor{white}{\dagger}}_{k_{1}}\!b^{\textcolor{white}{\dagger}}_{k_{2}},$ $b^{\textcolor{black}{\dagger}}_{k_{1}}\!b^{\textcolor{black}{\dagger}}_{k_{2}}$) terms. The parameters of the Hamiltonian are:
+\subsection{Description of the numerical procedure}
+\label{sect:description-num-proc}
+
+The solution of the system is found with exact diagonalization of the $2N\times 2N$ matrix composed by the matrix elements of the Hamiltonian for the hopping ($b^{\textcolor{black}{\dagger}}_{k_{1}}\!b^{\textcolor{white}{\dagger}}_{k_{2}}$) and pairing ($b^{\textcolor{white}{\dagger}}_{k_{1}}\!b^{\textcolor{white}{\dagger}}_{k_{2}},$ $b^{\textcolor{black}{\dagger}}_{k_{1}}\!b^{\textcolor{black}{\dagger}}_{k_{2}}$) terms. The parameters of the Hamiltonian are:
 \begin{itemize}
 \item Angular momentum $\ell=$ 0, 1, 2, 3, 4, 5.
-\item Systen size $N=$ 100, 200, 300, 400, 500.
-\item Coupling constant $a_{\mathcal{K}}=$ 0.01, 0.02, 0.05, 0.10.
+\item Coupling constant $a_{\mathcal{K}}=$ 1, 2, 5, 10.
 \item Reciprocal spreading $a_{\mathcal{K}}=$ 1, 2, 5, 10.
+\item System size $N=$ 100, 200, 300, 400, 500.
 \end{itemize}
-and the UV-cutoff being set to the unity, $\mathcal{K}=1$ and $E_{\mathrm{UV}}=1$.
+and the UV-cutoff being set to the unity, i.e., $\mathcal{K}=1$ and $E_{\mathrm{UV}}=1$.
 
-\begin{figure}
-\centering
-\includegraphics[scale=0.6]{PlotReportL0}
-\caption{$\triangle$ ($N=100$), $\square$ ($N=200$), $\largepentagon$ ($N=300$), $\largevarhexagon$ ($N=400$), and $\octagon$ ($N=500$). The extrapolation is $\ocircle$ for $N\rightarrow \infty$. }
-\label{fig:PlotReportL0}
-\end{figure}
-
-
-The Hamiltonian was diagonalized for each one of the 480 sets from the combinations of the parameters $\{\ell, N, g_{\mathcal{K}}, a_{\mathcal{K}}\}$, and then the energy spectra were examined looking for non-vanishing imaginary parts $\mathrm{Im}[E(k)]$ pointing out to an unstability in the modes of the system. The only two angular momentum channels that got non-vanishing imaginary parts in their eigenvalue spectra were $\ell=0$ and $\ell=2$, both showing only one eigenvalue with imaginary part (with the corresponding complementary eigenvalue with the opposite sign) at the smallest momentum, 
+Regarding the spacing of the lattice for the radial component of the momentum $k_{n}=k(\theta_{n},\Delta \theta)$, the following four parametrizations were taken into account to show that at the infinite size limit $N\rightarrow \infty$ the results do not depend on the discretization: 
+\begin{itemize}
+\item Discretization by powers of $n$ ($R=1,2$):
 \begin{equation}
-\mathrm{Im}[E(k_{\mathrm{min}})] = \mathrm{Im}\left[E\left(\frac{\mathcal{K}}{N}\right)\right] \neq 0,
+\label{eq:Discretization-powers}
+k_{n} = \mathcal{K}\left( n \Delta \theta \right)^{R},
 \end{equation}
-shown in the Figs. \ref{fig:PlotReportL0} and \ref{fig:PlotReportL2} for $\ell=0$ and $\ell=2$, respectively. Since the imaginary eigenvalues show a finite asympthotic trend when $k_{\mathrm{min}}\rightarrow 0$, i.e., $N\rightarrow\infty$, the five values obtain for each system size were useful to get the infinite size limit shown as the circles $\ocircle$ in the forementioned figures. 
+with Jacobian given by
+\begin{equation}
+D_{n} = \mathcal{K}^{2}R 
+\Delta k\left(n\Delta \theta\right)^{2R-1},
+\end{equation}
+and spacing
+\begin{equation}
+\Delta \theta = 1/N.
+\end{equation}
+\item Discretization by tangent of $n$ ($R=1,2$):
+\begin{equation}
+\label{eq:Discretization-tangents}
+k_{n} = \frac{\mathcal{K}}{\sqrt{R}}\tan^{R}
+\left(n\Delta \theta\right)
+\end{equation}
+with Jacobian given by
+\begin{equation}
+D_{n} = \mathcal{K}^{2} \Delta \theta 
+\sec^{2}\left(n\Delta \theta\right)
+\tan^{2R-1} \left(n\Delta \theta\right),
+\end{equation}
+and spacing
+\begin{equation}
+\Delta \theta = \frac{\pi/2}{N+1}
+\end{equation}
+\end{itemize}
+Consequently, the Hamiltonians spanned by the parameter space $\{\ell,g_{\mathcal{K}},a_{\mathcal{K}},N,R\}$ are obtained using the parametrizations of the radial coordinate $k_{n}$, then the infinite size limit $N\rightarrow \infty$ is taken to ensure that the results are independent of the particular discretization chosen during the numerical procedures.
 
-\begin{figure}
-\centering
-\includegraphics[scale=0.6]{PlotReportL2}
-\caption{$\triangle$ ($N=100$), $\square$ ($N=200$), $\largepentagon$ ($N=300$), $\largevarhexagon$ ($N=400$), and $\octagon$ ($N=500$). The extrapolation is $\ocircle$ for $N\rightarrow \infty$. }
+\subsection{Imaginary eigenvalues after doing exact diagonalization}
+
+\begin{figure*}
+\centering 
+\includegraphics[scale=0.5]{./PlotReport/PlotReportL0.pdf}
+\caption{Imaginary parts of the eigenvalues corresponding to the smallest momentum $k_{1}$ for $\ell=0$ and different system sizes $N$: $\triangle$ ($N=100$), $\square$ ($N=200$), $\largepentagon$ ($N=300$), $\largevarhexagon$ ($N=400$), and $\octagon$ ($N=500$). The extrapolation is $\ocircle$ for $N\rightarrow \infty$. }
+\label{fig:PlotReportL0}
+\end{figure*}
+
+\begin{figure*}
+\centering 
+\includegraphics[scale=0.5]{./PlotReport/PlotReportL2.pdf}
+\caption{Imaginary parts of the eigenvalues corresponding to the smallest momentum $k_{1}$ for $\ell=2$ and different system sizes $N$: $\triangle$ ($N=100$), $\square$ ($N=200$), $\largepentagon$ ($N=300$), $\largevarhexagon$ ($N=400$), and $\octagon$ ($N=500$). The extrapolation is $\ocircle$ for $N\rightarrow \infty$. }
 \label{fig:PlotReportL2}
-\end{figure}
+\end{figure*}
 
+The Hamiltonian was diagonalized for the different sets of the parameter space $\{\ell, g_{\mathcal{K}}, a_{\mathcal{K}},N,R\}$, and then the energy spectra were examined looking for non-vanishing imaginary parts $\mathrm{Im}[E(k)]$ pointing out to an unstability in the modes of the system. The only two angular momentum channels that got non-vanishing imaginary parts in their eigenvalue spectra were $\ell=0$ and $\ell=2$, both showing only one eigenvalue with imaginary part (with the corresponding complementary eigenvalue with the opposite sign) at the site $n=1$, corresponding to the smallest momentum, 
+\begin{equation}
+\mathrm{Im}[E(k_{\mathrm{min}})] = \mathrm{Im}\left[E\left(\Delta \theta \right)\right] \neq 0,
+\end{equation}
+shown in the Figs. \ref{fig:PlotReportL0} and \ref{fig:PlotReportL2} for $\ell=0$ and $\ell=2$, respectively. Since the imaginary eigenvalues show a finite asympthotic trend when $k_{\mathrm{min}}\rightarrow 0$, i.e., $N\rightarrow\infty$, the five values obtained for each system size are taken to get the infinite size limit shown as the circles $\ocircle$ in the forementioned figures. 
+\\
 
-The main differences between $\ell=0$ and $\ell=2$ channels root on the relative size of its imaginary eigenvalues, being small for the latter channel, almost the half of those ones for the former channel. On the other hand, the channels show expected behaviors like the increase of $\mathrm{Im}[E(k_{\mathrm{min}})]$ for larger $g_{\mathcal{K}}$ meaning stronger interactions, and the suppression for larger $a_{\mathcal{K}}$ meaning a wider spreading of the potential, turning out in a weaker interaction and consequently, smaller values for $\mathrm{Im}[E(k_{\mathrm{min}})]$.
+As expected, although the four discretizations of $k_{n}$ yield different numerical results depending on the power $R$, the form of $k(n,\Delta k)$ (powers in Eq. \eqref{eq:Discretization-powers} or tangents in Eq. \eqref{eq:Discretization-tangents}), or the system size $N$, the infinite system size limit $N\rightarrow \infty$ where $k_{1}\rightarrow 0$ yields almost the same imaginary eigenvalues, with a slight increment for the tangent discretization produced by the contribution of the sites along the radial momentum beyond the UV-cutoff $\mathcal{K}$, in other words, the sites $k_{n}$ with $n>N/2$.
 
-The infinite size limits for $\mathrm{Im}[E(k_{\mathrm{min}}\rightarrow 0)]$ are summarized in the Fig. \ref{fig:PlotReport} using the same color code and legends of Figs. \ref{fig:PlotReportL0} and \ref{fig:PlotReportL2}. 
+There are some plots for small $g_{\mathcal{K}}$ with $R=1$ like Fig. \ref{fig:PlotReportL0}(a) or \ref{fig:PlotReportL0}(c), or even worse in Fig. \ref{fig:PlotReportL2}(a) and \ref{fig:PlotReportL2}(c) where there are missing markers for large $a_{\mathcal{K}}$ that are shown in their analogues with $R=2$, Figs. \ref{fig:PlotReportL0}(b), \ref{fig:PlotReportL0}(d), \ref{fig:PlotReportL2}(b) and \ref{fig:PlotReportL2}(d), respectively, This fact suggests that finer lattices are required to catch the non-vanishing imaginary part of the eigenvalue corresponding to the site with the smallest momentum, $k_{1}$, supporting the fact that the imaginary eigenvalue, i.e., the instalibity, is located at momentum $k\rightarrow 0$.
+
+The main differences between $\ell=0$ and $\ell=2$ channels root on the relative size of their imaginary eigenvalues, being smaller for the latter channel, almost a half of those ones for the former channel. On the other hand, the channels show expected behaviors like the increasing of $\mathrm{Im}[E(k_{\mathrm{min}})]$ for larger $g_{\mathcal{K}}$, i.e., stronger interactions, and the suppression for larger $a_{\mathcal{K}}$, that is, a wider spreading of the potential, turning out in a weaker interaction and consequently, smaller values for $\mathrm{Im}[E(k_{\mathrm{min}})]$.
+
+The infinite size limits for $\mathrm{Im}[E(k_{\mathrm{min}}\rightarrow 0)]$ are summarized in the Fig. \ref{fig:PlotReport} using the same color code and legends of Figs. \ref{fig:PlotReportL0} and \ref{fig:PlotReportL2} and the infinite size limits for the tangent discretization in Eq. \eqref{eq:Discretization-tangents} with $R=2$. 
 
 \begin{figure}
 \centering
-\includegraphics[scale=0.6]{PlotReport}
-\caption{$\triangle$ ($N=100$), $\square$ ($N=200$), $\largepentagon$ ($N=300$), $\largevarhexagon$ ($N=400$), and $\octagon$ ($N=500$). The extrapolation is $\ocircle$ for $N\rightarrow \infty$. }
+%\includegraphics[scale=0.6]{./PlotReport/PlotReportPow}PlotReportPowR1L0
+\includegraphics[scale=0.55]{./PlotReport/PlotReportTotal}
+\caption{Summarize of the infinite size limit $N\rightarrow\infty$ of the imaginary parts shown in Figs. \ref{fig:PlotReportL0} and \ref{fig:PlotReportL2} vs. the coupling constant $g_{\mathcal{K}}$.}
 \label{fig:PlotReport}
 \end{figure}
 
-
 \section{Lorem ipsum}
 
-The Hamiltonian was diagonalized for each one of the 480 sets from the combinations of the parameters $\{\ell, N, g_{\mathcal{K}}, a_{\mathcal{K}}\}$, and then the energy spectra were examined looking for non-vanishing imaginary parts $\mathrm{Im}[E(k)]$ pointing out to an unstability in the modes of the system. The only two angular momentum channels that got non-vanishing imaginary parts in their eigenvalue spectra were $\ell=0$ and $\ell=2$, both showing only one eigenvalue with imaginary part (with the corresponding complementary eigenvalue with the opposite sign) at the smallest momentum, 
-\begin{equation}
-\mathrm{Im}[E(k_{\mathrm{min}})] = \mathrm{Im}\left[E\left(\frac{\mathcal{K}}{N}\right)\right] \neq 0,
-\end{equation}
-shown in the Figs. \ref{fig:PlotReportL0} and \ref{fig:PlotReportL2} for $\ell=0$ and $\ell=2$, respectively. Since the imaginary eigenvalues show a finite asympthotic trend when $k_{\mathrm{min}}\rightarrow 0$, i.e., $N\rightarrow\infty$, the five values obtain for each system size were useful to get the infinite size limit shown as the circles $\ocircle$ in the forementioned figures. 
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque eu pharetra ligula, in scelerisque risus. Mauris convallis neque elit, at tincidunt lectus venenatis et. Donec ultricies eros nec nisl posuere, vitae scelerisque enim fringilla. Maecenas eget odio dapibus, egestas ante a, tempor neque. Nullam in nisi varius, laoreet urna sit amet, hendrerit erat. Maecenas id ligula posuere, tincidunt nisi a, scelerisque libero. Quisque maximus quis sem eleifend fermentum. Ut pharetra dui quis pharetra consectetur. Pellentesque commodo lacinia urna. Aliquam nibh nulla, facilisis id cursus eget, tristique non neque.
 
-The main differences between $\ell=0$ and $\ell=2$ channels root on the relative size of its imaginary eigenvalues, being small for the latter channel, almost the half of those ones for the former channel. On the other hand, the channels show expected behaviors like the increase of $\mathrm{Im}[E(k_{\mathrm{min}})]$ for larger $g_{\mathcal{K}}$ meaning stronger interactions, and the suppression for larger $a_{\mathcal{K}}$ meaning a wider spreading of the potential, turning out in a weaker interaction and consequently, smaller values for $\mathrm{Im}[E(k_{\mathrm{min}})]$.
+Proin risus sem, viverra vitae ornare ut, imperdiet a erat. Ut aliquet lorem sit amet elit efficitur auctor. Praesent consequat magna a neque feugiat, eget facilisis sem eleifend. Proin id posuere est, nec sodales nibh. Maecenas lacus felis, fringilla eu ligula at, gravida feugiat orci. In id faucibus massa. Phasellus iaculis iaculis mauris, vitae congue orci hendrerit eu. Proin interdum nisl at justo scelerisque ullamcorper. Maecenas tincidunt lectus quis gravida faucibus. Vestibulum tempor fermentum egestas.
 
+Proin vitae semper dolor. Etiam diam ex, lobortis vitae rutrum sed, tempus at diam. Nunc ut felis mauris. Duis suscipit dui eu enim cursus, aliquet consequat est bibendum. Maecenas id enim consectetur, iaculis purus ac, consectetur quam. Suspendisse vel interdum turpis. Duis hendrerit tempor lacus, eu iaculis orci congue eu. Nam vitae tellus non nisi euismod feugiat vitae vitae ex. Quisque felis mauris, pulvinar sed dui sit amet, facilisis ultricies tortor. Quisque nibh massa, malesuada quis nisl sodales, faucibus semper ligula.
 
+Duis imperdiet massa eu lacus fringilla, et pulvinar eros dapibus. Etiam dictum vulputate tempus. Integer felis dolor, mattis in tincidunt eu, sodales ac orci. Curabitur fermentum aliquam finibus. Praesent non dui nunc. Ut commodo vulputate lorem, nec pretium nisi lacinia vitae. Donec fermentum elementum ex vel mollis. Donec turpis nisi, placerat vel sollicitudin in, bibendum vel ipsum. Aliquam venenatis non nisl ut rutrum. Cras sed est tincidunt elit euismod fermentum et quis nisi. Ut fringilla ligula nisl, sed lobortis nunc laoreet et.
 
-The Hamiltonian was diagonalized for each one of the 480 sets from the combinations of the parameters $\{\ell, N, g_{\mathcal{K}}, a_{\mathcal{K}}\}$, and then the energy spectra were examined looking for non-vanishing imaginary parts $\mathrm{Im}[E(k)]$ pointing out to an unstability in the modes of the system. The only two angular momentum channels that got non-vanishing imaginary parts in their eigenvalue spectra were $\ell=0$ and $\ell=2$, both showing only one eigenvalue with imaginary part (with the corresponding complementary eigenvalue with the opposite sign) at the smallest momentum, 
-\begin{equation}
-\mathrm{Im}[E(k_{\mathrm{min}})] = \mathrm{Im}\left[E\left(\frac{\mathcal{K}}{N}\right)\right] \neq 0,
-\end{equation}
-shown in the Figs. \ref{fig:PlotReportL0} and \ref{fig:PlotReportL2} for $\ell=0$ and $\ell=2$, respectively. Since the imaginary eigenvalues show a finite asympthotic trend when $k_{\mathrm{min}}\rightarrow 0$, i.e., $N\rightarrow\infty$, the five values obtain for each system size were useful to get the infinite size limit shown as the circles $\ocircle$ in the forementioned figures. 
+Morbi arcu leo, auctor ut luctus eu, eleifend sed lorem. Sed commodo molestie ligula ut tempor. Aenean posuere vel velit et ullamcorper. Integer consectetur semper arcu non hendrerit. Suspendisse ornare leo vel ornare sollicitudin. Vivamus elementum lacinia turpis quis suscipit. Duis varius aliquam tortor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Morbi a tristique mauris. Quisque pretium, nibh in ornare elementum, neque velit efficitur dui, nec fermentum ipsum risus sit amet magna. Donec elit quam, cursus sed mollis non, aliquam vitae felis.
 
-The main differences between $\ell=0$ and $\ell=2$ channels root on the relative size of its imaginary eigenvalues, being small for the latter channel, almost the half of those ones for the former channel. On the other hand, the channels show expected behaviors like the increase of $\mathrm{Im}[E(k_{\mathrm{min}})]$ for larger $g_{\mathcal{K}}$ meaning stronger interactions, and the suppression for larger $a_{\mathcal{K}}$ meaning a wider spreading of the potential, turning out in a weaker interaction and consequently, smaller values for $\mathrm{Im}[E(k_{\mathrm{min}})]$.
-
-
-
-The Hamiltonian was diagonalized for each one of the 480 sets from the combinations of the parameters $\{\ell, N, g_{\mathcal{K}}, a_{\mathcal{K}}\}$, and then the energy spectra were examined looking for non-vanishing imaginary parts $\mathrm{Im}[E(k)]$ pointing out to an unstability in the modes of the system. The only two angular momentum channels that got non-vanishing imaginary parts in their eigenvalue spectra were $\ell=0$ and $\ell=2$, both showing only one eigenvalue with imaginary part (with the corresponding complementary eigenvalue with the opposite sign) at the smallest momentum, 
-\begin{equation}
-\mathrm{Im}[E(k_{\mathrm{min}})] = \mathrm{Im}\left[E\left(\frac{\mathcal{K}}{N}\right)\right] \neq 0,
-\end{equation}
-shown in the Figs. \ref{fig:PlotReportL0} and \ref{fig:PlotReportL2} for $\ell=0$ and $\ell=2$, respectively. Since the imaginary eigenvalues show a finite asympthotic trend when $k_{\mathrm{min}}\rightarrow 0$, i.e., $N\rightarrow\infty$, the five values obtain for each system size were useful to get the infinite size limit shown as the circles $\ocircle$ in the forementioned figures. 
-
-The main differences between $\ell=0$ and $\ell=2$ channels root on the relative size of its imaginary eigenvalues, being small for the latter channel, almost the half of those ones for the former channel. On the other hand, the channels show expected behaviors like the increase of $\mathrm{Im}[E(k_{\mathrm{min}})]$ for larger $g_{\mathcal{K}}$ meaning stronger interactions, and the suppression for larger $a_{\mathcal{K}}$ meaning a wider spreading of the potential, turning out in a weaker interaction and consequently, smaller values for $\mathrm{Im}[E(k_{\mathrm{min}})]$.
 
 
 
