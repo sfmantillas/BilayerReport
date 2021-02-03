@@ -9,6 +9,7 @@
 \usepackage{amsmath}
 \usepackage{hyperref}
 \usepackage{amssymb}
+\usepackage{mathtools}
 \usepackage{cleveref}
 \usepackage{cancel}
 \usepackage{xfrac}
@@ -214,37 +215,19 @@ where $[\hat{\mathbf{k}}_{m}]=
 \item $m=1$: $E_{\mathrm{UV} } = v\mathcal{K}$, where $v$ is the Fermi velocity of the Dirac fermions.
 \item $m=2$: $E_{\mathrm{UV} } = \mathcal{K}^{2}/2m_{e}$, where $m_{e}$ is the effective mass of the electron. 
 \end{itemize}
-The potential is given by
+Therefore, the density of states per spin and per valley can be expressed as
 \begin{equation}
-V_{\mathbf{r}} = 
-V_{0}e^{-r^{2}/2a^{2}}
+N(E) = \frac{\mathcal{K}^{2}}{2\pi m}
+\sqrt[m]{
+\frac{E^{2-m}_{\textcolor{white}{b}}}
+{E_{\mathrm{UV}}^{2}}},
 \end{equation}
-with $V_{0}$ the intensity of the Gaussian potential and $a$ the spreading in the real space. Its Fourier transform is
-\begin{eqnarray*}
-\nonumber	
-V_{\mathbf{k}} = 2\pi a^{2}V_{0}
-e^{-\tfrac{a^{2}k^{2}}{2}}\!
-= \frac{E_{\mathrm{UV}}}{\mathcal{K}^{2}} 
-\left[ \frac{2\pi (a\mathcal{K})^{2}V_{0}}{E_{\mathrm{UV}}}
-e^{-\tfrac{(a{\mathcal{K}})^{2}}{2}
-\left( \tfrac{k}{\mathcal{K}} \right)^{2}}
-\right],	
-\end{eqnarray*}
-\vspace{-.5cm}
-\begin{equation}
-\label{eq:Fourier-Potential}
-V_{\mathbf{k}} = \frac{E_{\mathrm{UV}}}{\mathcal{K}^{2}} 
-\left( g_{0} 
-e^{-\tfrac{a_{\mathcal{K}}^{2}}{2}
-\left( \tfrac{k}{\mathcal{K}} \right)^{2}}
-\right),	
-\end{equation}
-where $k=|\mathbf{k}|$. It is assumed that $a>2\pi/\mathcal{K}$, i.e., the spreading of the Gaussian should be larger than the lattice parameter $2\pi/\mathcal{K}$. The additional two nondimensional parameters are:
+which, as special cases:
 \begin{itemize}
-\item Reciprocal spreading $a_{\mathcal{K}}=a\mathcal{K}$: Determines how concentrated is the potential in the reciprocal space. $a_{\mathcal{K}}$ is constrained to be larger than one.
-\item Coupling constant $g_{\mathcal{K}}=2\pi a_{\mathcal{K}}^{2}V_{0}/E_{\mathrm{UV}}$: Relates the intensity of the Gaussian potential in the reciprocal space with $E_{\mathrm{UV}}$, the kinetic energy at the UV cutoff. 
+\item $m=1$: $N(E)\propto (\mathcal{K}/E_{\mathrm{UV}})^{2}E=E/ v^{2}$.
+\item $m=2$: $N(E)\propto \mathcal{K}^{2}/E_{\mathrm{UV}}=2m_{e}$.
 \end{itemize}
-Lastly, the interaction Hamiltonian can be expressed as
+On the other hand, the interaction Hamiltonian can be expressed as
 \begin{eqnarray}
 &H&\!_{\mathrm{int}} =
 \frac{1}{2A}
@@ -255,27 +238,11 @@ V_{\mathbf{q}}
 \psi_{\mathbf{k'+q,\sigma'}}^{\textcolor{black}{\dagger}}
 \psi_{\mathbf{k -q,\sigma }}^{\textcolor{black}{\dagger}}
 \psi_{\mathbf{k   ,\sigma }}^{\textcolor{white}{\dagger}}
-\psi_{\mathbf{k'  ,\sigma'}}^{\textcolor{white}{\dagger}} \\
- &=& \nonumber \frac{E_{\mathrm{UV}}}{2A\mathcal{K}^{2}}
-\sum_{\mathbf{k }\mathbf{k'}}
-\sum_{\sigma \sigma'} 
-g_{\mathcal{K}}
-e^{-\tfrac{a_{\mathcal{K}}^{2}}{2}\left( \tfrac{k}{\mathcal{K}} \right)^{2}}
-\!\! 
-\psi_{\mathbf{k'+q,\sigma'}}^{\textcolor{black}{\dagger}}
-\psi_{\mathbf{k -q,\sigma }}^{\textcolor{black}{\dagger}}
-\psi_{\mathbf{k   ,\sigma }}^{\textcolor{white}{\dagger}}
-\psi_{\mathbf{k'  ,\sigma'}}^{\textcolor{white}{\dagger}}.
+\psi_{\mathbf{k'  ,\sigma'}}^{\textcolor{white}{\dagger}},
 \end{eqnarray}
 where $A$ is the total area of the system.
 
 \section{Restricted Hilbert space for $\mathbf{Q}=0$ excitons and pseudospin basis}
-\begin{figure}
-\centering
-\includegraphics[scale=0.45]{ParabolicVertical.png}
-\caption{$\mathbf{Q}=0$ and $\mathbf{Q}\neq 0$ excitations on the parabolic bands.}
-\label{fig:Q=0-excitons}
-\end{figure}
 
 The optical relevant excitations of the system correspond to the $\mathbf{Q}=0$ excitons, as shown in Fig. \ref{fig:Q=0-excitons}. These ones do not modify the momentum label of the electron when it jumps from the valence to the conduction band, and consequently, any interaction between a pair excitons at momenta $\mathbf{k}_{1}$ and $\mathbf{k}_{2}$ should only interchange their momentum labels. In other words, by having into account only $\mathbf{Q}=0$ excitations, the Hilbert space of the system results restricted onto the singly-occupied sites in the momentum lattice. A good operator to describe the singly-occupied constrain is
 \begin{equation}
@@ -325,6 +292,13 @@ n_{\mathbf{k ,\sigma }} =
 1.
 \end{split}
 \end{equation}.
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.45]{ParabolicVertical.png}
+\caption{$\mathbf{Q}=0$ and $\mathbf{Q}\neq 0$ excitations on the parabolic bands.}
+\label{fig:Q=0-excitons}
+\end{figure}
 
 The following steps show how the four-fermion term in the interacion Hamiltonian can be expressed under the singly-occupied constrain. The completeness relation of the Pauli matrices
 \begin{equation}
@@ -761,6 +735,159 @@ T_{\mathbf{kk'}} =
 \end{pmatrix} .   
 \end{equation}
 
+\section{Electron-electron Potentials}
+\label{sect:Potentials}
+
+The system is explored using two different kinds of potentials: a Gaussian-shaped potential and a Coulombic potential. The next two sections explore their Fourier transforms and define their parameters essential for the numerical exploration of the Hamiltonian. 
+
+\subsection{Gaussian potential}
+\label{sect:Potentials-Gaussian}
+The potential is given by
+\begin{equation}
+V_{\mathbf{r}} = 
+V_{0}e^{-r^{2}/2a^{2}}
+\end{equation}
+with $V_{0}$ the intensity of the Gaussian potential and $a$ the spreading in the real space. Its 2D Fourier transform is
+\begin{eqnarray*}
+\nonumber	
+V_{\mathbf{k}}\! =\! a^{2}V_{0}
+e^{-\tfrac{a^{2}k^{2}}{2}}\!
+=\! \frac{E_{\mathrm{UV}}}{\mathcal{K}^{2}} 
+\left[ \frac{(a\mathcal{K})^{2}V_{0}}{E_{\mathrm{UV}}}
+e^{-\tfrac{(a{\mathcal{K}})^{2}}{2}
+\left( \tfrac{k}{\mathcal{K}} \right)^{2}}
+\right],	
+\end{eqnarray*}
+\vspace{-.5cm}
+\begin{equation}
+\label{eq:Fourier-Potential}
+V_{\mathbf{k}} = \frac{E_{\mathrm{UV}}}{\mathcal{K}^{2}} 
+\left( g_{\mathcal{K} } 
+e^{-\tfrac{a_{\mathcal{K}}^{2}}{2}
+\left( \tfrac{k}{\mathcal{K}} \right)^{2}}
+\right),	
+\end{equation}
+where $k=|\mathbf{k}|$. Notice the expression of the density of states for bilayer graphene as a normalization constant. It is assumed that $a>2\pi/\mathcal{K}$, i.e., the spreading of the Gaussian should be larger than the lattice parameter $2\pi/\mathcal{K}$. The additional two nondimensional parameters are:
+\begin{itemize}
+\item Reciprocal spreading $a_{\mathcal{K}} = a\mathcal{K}$: Determines how concentrated is the potential in the reciprocal space. $a_{\mathcal{K}}$ is constrained to be larger than one.
+\item Coupling constant $g_{\mathcal{K}} = a_{\mathcal{K}}^{2}V_{0}/E_{\mathrm{UV}}$: Relates the intensity of the Gaussian potential in the reciprocal space to $E_{\mathrm{UV}}$, the kinetic energy at the UV cutoff. 
+\end{itemize}
+Then, the interaction Hamiltonian turns out to be
+\begin{eqnarray}
+&H&\!_{\mathrm{int}} =
+\frac{1}{2A}
+%\sum_{\genfrac{ }{ }{0pt}{3}{\mathbf{k },\mathbf{k'}}{\mathbf{q }\neq 0} } 
+\sum_{\mathbf{k }\mathbf{k'}}
+\sum_{\sigma \sigma'} 
+V_{\mathbf{q}}
+\psi_{\mathbf{k'+q,\sigma'}}^{\textcolor{black}{\dagger}}
+\psi_{\mathbf{k -q,\sigma }}^{\textcolor{black}{\dagger}}
+\psi_{\mathbf{k   ,\sigma }}^{\textcolor{white}{\dagger}}
+\psi_{\mathbf{k'  ,\sigma'}}^{\textcolor{white}{\dagger}} \\
+ &=& \nonumber \frac{E_{\mathrm{UV}}}{2A\mathcal{K}^{2}}
+\sum_{\mathbf{k }\mathbf{k'}}
+\sum_{\sigma \sigma'} 
+g_{\mathcal{K}}
+e^{-\tfrac{a_{\mathcal{K}}^{2}}{2}\left( \tfrac{k}{\mathcal{K}} \right)^{2}}
+\!\! 
+\psi_{\mathbf{k'+q,\sigma'}}^{\textcolor{black}{\dagger}}
+\psi_{\mathbf{k -q,\sigma }}^{\textcolor{black}{\dagger}}
+\psi_{\mathbf{k   ,\sigma }}^{\textcolor{white}{\dagger}}
+\psi_{\mathbf{k'  ,\sigma'}}^{\textcolor{white}{\dagger}}.
+\end{eqnarray}
+where $A$ is the total area of the system.
+
+\subsection{Coulombic potential}
+\label{sect:Potentials-Coulomb}
+The potential is given by
+\begin{equation}
+V_{\mathbf{r}} =
+\frac{2\pi e^{2}}{\kappa}\!\!
+\left( 
+\!
+\frac{1}{\sqrt{r^{2}+\mathcal{K}^{-2}  } }
+-
+\frac{1}{\sqrt{r^{2}+a^{2} } } 
+\!
+\right)
+\end{equation}
+with $e$ the elementary electric charge, $\kappa$ is the substrate dielectric constant and $a$ is a short distance limit that plays the role of an IR cutoff. Its 2D Fourier transform is
+\begin{eqnarray*}
+\nonumber	
+V_{\mathbf{k}} &=& 
+\frac{2\pi e^{2}}{\kappa} 
+\frac{ 
+e^{-\left(\!\tfrac{k}{\mathcal{K}}\!\right) }
+\!\!-\!
+e^{-a k} 
+}{k} =
+\frac{2\pi e^{2}}{\kappa \mathcal{K} }
+\frac{ 
+e^{-\left(\!\tfrac{k}{\mathcal{K}}\!\right) }
+\!\!-\!
+e^{-a \mathcal{K}
+\left(\!\tfrac{k}{\mathcal{K}}\!\right) } 
+}{k/\mathcal{K}} \\ &=& 
+\frac{E_{\mathrm{UV}}}{\mathcal{K}^{2}}
+\left[
+\frac{2\pi e^{2}\mathcal{K}}{\kappa E_{\mathrm{UV}}}
+\frac{ 
+e^{-\left(\!\tfrac{k}{\mathcal{K}}\!\right) }
+\!\!-\!
+e^{-a \mathcal{K}
+\left(\!\tfrac{k}{\mathcal{K}}\!\right) } 
+}{k/\mathcal{K}}
+\right] 
+\end{eqnarray*}
+\vspace{-.5cm}
+\begin{equation}
+\label{eq:Fourier-Potential-Coulomb}
+V_{\mathbf{k}} = \frac{E_{\mathrm{UV}}}{\mathcal{K}^{2}} 
+\left( g_{\mathcal{K}} 
+\frac{ 
+e^{-\left(\!\tfrac{k}{\mathcal{K}}\!\right) }
+\!\!-\!
+e^{-a_{\mathcal{K}} 
+\left(\!\tfrac{k}{\mathcal{K}}\!\right) } 
+}{k/\mathcal{K}}
+\right),
+\end{equation}
+where $k=|\mathbf{k}|$. Note once again the expression of the density of states for bilayer graphene as a normalization constant.It is assumed that $a>2\pi/\mathcal{K}$, i.e., the IR cutoff of the mirror Coulomb potential should be larger than the UV cutoff $\mathcal{K}$. The additional two nondimensional parameters are:
+\begin{itemize}
+\item Reciprocal spreading $a_{\mathcal{K}}=a\mathcal{K}$: Determines the IR cutoff in terms of the UV cutoff $\mathcal{K}$. As well as in the Gaussian case, $a_{\mathcal{K}}$ is constrained to be larger than one.
+\item Coupling constant $g_{\mathcal{K}}=2\pi e^{2}\mathcal{K}/\kappa E_{\mathrm{UV}}$: Relates the intensity of the Coulomb potential, $2\pi e^{2}/\kappa$ with units of velocity, to $E_{\mathrm{UV}}/\mathcal{K}$, half the velocity at the UV cutoff. 
+\end{itemize}
+Then, the interaction Hamiltonian turns out to be
+\begin{eqnarray}
+&H&\!_{\mathrm{int}} =
+\frac{1}{2A}
+%\sum_{\genfrac{ }{ }{0pt}{3}{\mathbf{k },\mathbf{k'}}{\mathbf{q }\neq 0} } 
+\sum_{\mathbf{k }\mathbf{k'}}
+\sum_{\sigma \sigma'} 
+V_{\mathbf{q}}
+\psi_{\mathbf{k'+q,\sigma'}}^{\textcolor{black}{\dagger}}
+\psi_{\mathbf{k -q,\sigma }}^{\textcolor{black}{\dagger}}
+\psi_{\mathbf{k   ,\sigma }}^{\textcolor{white}{\dagger}}
+\psi_{\mathbf{k'  ,\sigma'}}^{\textcolor{white}{\dagger}} \nonumber \\
+ &=&  \frac{E_{\mathrm{UV}}}{2A\mathcal{K}^{2}}
+\sum_{\mathbf{k }\mathbf{k'}}
+\sum_{\sigma \sigma'} 
+g_{\mathcal{K}} \left( 
+\frac{ 
+e^{-\left(\!\tfrac{k}{\mathcal{K}}\!\right) }
+\!\!-\!
+e^{-a_{\mathcal{K}} 
+\left(\!\tfrac{k}{\mathcal{K}}\!\right) } 
+}{k/\mathcal{K}}
+\right) \times \\
+ &\times& \nonumber 
+\psi_{\mathbf{k'+q,\sigma'}}^{\textcolor{black}{\dagger}}
+\psi_{\mathbf{k -q,\sigma }}^{\textcolor{black}{\dagger}}
+\psi_{\mathbf{k   ,\sigma }}^{\textcolor{white}{\dagger}}
+\psi_{\mathbf{k'  ,\sigma'}}^{\textcolor{white}{\dagger}}.
+\end{eqnarray}
+where $A$ is the total area of the system.
+
 \section{Hartree-Fock Self-energy in multilayer graphene}
 \label{sect:Self-Energy}
 
@@ -773,6 +900,10 @@ The Hartree-Fock self-energy of the electrons and holes is given by
 V(\mathbf{ k-p })\cos(m\phi_{\mathbf{ k p}}),
 \end{split}
 \end{equation}
+where $V(\mathbf{ k-p })$ is replaced by the expressions of the Fourier transforms for the Gaussian and the Coulomb potentials.
+
+\subsection{Gaussian Potential}
+\label{sect:Self-Energy-Gaussian}
 The Fourier potential in \eqref{eq:Fourier-Potential} is then replaced in \eqref{eq:General-HF-Energy}
 \begin{equation}
 \begin{split}
@@ -913,11 +1044,11 @@ The two limit cases for large and small momenta are given by the following expre
 \lim_{k\rightarrow \infty} \Sigma^{m}(\mathbf{k }) &=
 \frac{E_{\mathrm{UV}}}{4\pi a_{\mathcal{K}}^{2}} \\
 \lim_{k\rightarrow 0} \Sigma^{m}(\mathbf{k }) &=
-\frac{2^{-\frac{3n\!+\!4}{2}} E_{\mathrm{UV}} \left(\frac{a_{\mathcal{K}} k}{\mathcal{K}}\right)^n}{\sqrt{\pi } a_{\mathcal{K}}^2 \Gamma \left(\frac{n+1}{2}\right)}
+\frac{2^{-\frac{3m\!+\!4}{2}} E_{\mathrm{UV}} \left(\frac{a_{\mathcal{K}} k}{\mathcal{K}}\right)^m}{\sqrt{\pi } a_{\mathcal{K}}^2 \Gamma \left(\frac{m+1}{2}\right)}
 \end{split}
 \end{equation}
 
-As special cases, the self-energy corresponding to any odd-layer and bilayer graphene are
+As special cases, the self-energy corresponding to any odd number of layers and bilayer graphene are
 \begin{equation}
 \begin{split}
 \!\!\!\!\Sigma^{n}\!(\mathbf{k })
@@ -1019,6 +1150,170 @@ Notice that the dependence on $a_{\mathcal{K}}$ of the lowest-expansion-term coe
 \includegraphics[scale=0.6]{SelfEnergyPlot123Taylor.pdf}
 \caption{Low-momentum limit for $\Sigma^{m}(\mathbf{k})$ in monolayer, bilayer and trilayer graphene. The legends are the same shown in Fig. \ref{fig:Multilayer-Self-Energies} with the additional bolded curves representing the lowest-order expansion terms and labels of $a_{\mathcal{K}}$ to help with the interpretation of the plot. Notice that the low-momentum limit of $\Sigma^{2}(\mathbf{k})$ is independent of $a_{\mathcal{K}}$.}
 \label{fig:Multilayer-Self-Energies-Taylor}
+\end{figure}
+
+\subsection{Coulombic Potential}
+\label{sect:Self-Energy-Coulomb}
+The Fourier potential in \eqref{eq:Fourier-Potential-Coulomb} is then replaced in \eqref{eq:General-HF-Energy}
+\begin{eqnarray}
+&&\Sigma^{m}(\mathbf{k })  =  \frac{E_{\mathrm{UV}}}{\mathcal{K}^{2}}
+\!\!
+\int \!\! \frac{d^2 \mathbf{p}}{(2\pi)^2}
+\times \\
+ &&\times \nonumber 
+g_{\mathcal{K}} \left( 
+\frac{ 
+e^{-\left(\!
+\tfrac{\left|\mathbf{ k-p }\right|}
+{\mathcal{K}}\!\right) }
+\!\!-\!
+e^{-a_{\mathcal{K}} 
+\left(\!
+\tfrac{\left|\mathbf{ k-p }\right|}
+{\mathcal{K}}\!\right) } 
+}{\left|\mathbf{ k-p }\right|/\mathcal{K}}
+\right) 
+\cos(m\phi_{\mathbf{ k p}}),
+\end{eqnarray}
+
+The self-energy of the $m$-layer graphene is then expressed as
+\begin{eqnarray}
+\!\!&&\Sigma^{m}(\mathbf{k })
+ = 
+\frac{g_{\mathcal{K}}E_{\mathrm{UV}} k}{4 \mathcal{K}} 
+\times \\ \!\! &&\times 
+\left[ 
+I_{\frac{m-1}{2}}\!\!
+\left(\! \frac{k}{2\mathcal{K}} \!\right) \!\!
+K_{\frac{m-1}{2}}\!\!
+\left(\! \frac{k}{2\mathcal{K}} \!\right)
+\!\! + \!
+I_{\frac{m+1}{2}}\!\!
+\left(\! \frac{k}{2\mathcal{K}} \!\right) \!\!
+K_{\frac{m+1}{2}}\!\!
+\left(\! \frac{k}{2\mathcal{K}} \!\right)
+\!
+\right]
+\!
+, \nonumber 
+\end{eqnarray}
+The two limit cases for large and small momenta are given by the following expressions:
+\begin{equation}
+\begin{split}
+\lim_{k\rightarrow \infty} \Sigma^{m}(\mathbf{k }) &=
+\frac{g_{\mathcal{K}}E_{\mathrm{UV}}}{2} \\
+\lim_{k\rightarrow 0} \Sigma^{m}(\mathbf{k }) &=
+\frac{m g_{\mathcal{K}} E_{\mathrm{UV}}}{2(m^{2}-1)}\left( \frac{k}{\mathcal{K}} \right), \quad m>1,
+\end{split}
+\end{equation}
+It is found a similar behavior for large momenta like the Gaussian potential, but for small momenta, excepting $m=1$, the leading order is always linear in $k/\mathcal{K}$, regardless the number of layers $m$, highly in contrast to the Gaussian case where the leading order is proportional to $(k/\mathcal{K})^{m}$.
+\\
+
+	ARREGLAR EXPRESIONES Y EXPLICAR EL CASO $m=1$
+\\
+
+As special cases, the self-energy corresponding to any odd-layer and bilayer graphene are
+\begin{equation}
+\begin{split}
+\!\!\!\!\Sigma^{n}\!(\mathbf{k })
+\! &= \!
+\frac{g_{\mathcal{K}}E_{\mathrm{UV}}}{8a_{\mathcal{K}}}
+\frac{k e^{-\frac{a_{\mathcal{K}}^{2}k^{2}}{4\mathcal{K}^{2}}}}{\mathcal{K}\sqrt{2\pi}}
+\!\!
+\left[ 
+\!
+I_{n}\!\!
+\left(\!
+\frac{a_{\mathcal{K}}^{2}k^{2}}{4\mathcal{K}^{2}}
+\!\right)
+\!\! + \!
+I_{n+1}\!\!
+\left(\!
+\frac{a_{\mathcal{K}}^{2}k^{2}}{4\mathcal{K}^{2}}
+\!\right)
+\!
+\right]
+\!
+,
+\end{split}
+\end{equation}
+\begin{equation}
+\begin{split}
+\Sigma^{2}(\mathbf{k })
+\! &= \!
+\frac{g_{\mathcal{K}}E_{\mathrm{UV}}}{8a_{\mathcal{K}}}
+\frac{k e^{-\frac{a_{\mathcal{K}}^{2}k^{2}}{4\mathcal{K}^{2}}}}{\mathcal{K}\sqrt{2\pi}}
+\!\!
+\left[ 
+I_{\frac{1}{2}}\!\!
+\left(\!
+\frac{a_{\mathcal{K}}^{2}k^{2}}{4\mathcal{K}^{2}}
+\!\right)
+\!\! + \!
+I_{\frac{3}{2}}\!\!
+\left(\!
+\frac{a_{\mathcal{K}}^{2}k^{2}}{4\mathcal{K}^{2}}
+\!\right)
+\!
+\right]
+\! \\ &= \!
+\frac{g_{\mathcal{K}}E_{\mathrm{UV}}}{4\pi a_{\mathcal{K}}^{2}}
+\left[
+1 - 
+\frac{2\mathcal{K}^{2}}{a_{\mathcal{K}}^{2}k^{2}}
+\left(
+1-e^{-\frac{a_{\mathcal{K}}^{2}k^{2}}{2\mathcal{K}^{2}}}
+\right)
+\right]
+\!
+,
+\end{split}
+\end{equation}
+where $n$ is an odd integer (see the Fig. \ref{fig:Multilayer-Self-Energies} for the cases of monolayer, bilayer and trilayer graphene). Their corresponding small-momentum regimes are described by
+\begin{equation}
+\begin{split}
+\Sigma^{1}\!(\mathbf{k })
+ &\approx 
+\frac{g_{\mathcal{K}}E_{\mathrm{UV}}}
+{8 \sqrt{2 \pi } a_{\mathcal{K}}}
+\!
+\left( \frac{k}{\mathcal{K}} \right)
++ O(k^{2})
+, \\
+\Sigma^{2}(\mathbf{k })
+ &\approx 
+\frac{g_{\mathcal{K}}E_{\mathrm{UV}}}
+{16\pi }
+\!\! 
+\left( \frac{k}{\mathcal{K}} \right)^2
+\!\!
++ O(k^{3})
+, \\
+\Sigma^{3}(\mathbf{k })
+ &\approx 
+\frac{a_{\mathcal{K}} E_{\mathrm{UV}}}
+{64 \sqrt{2} \sqrt{\pi }}
+\!\! 
+\left( \frac{k}{\mathcal{K}} \right)^3
+\!\!
++ O(k^{4})
+,
+\end{split}
+\end{equation}
+Notice that the dependence on $a_{\mathcal{K}}$ of the lowest-expansion-term coefficient for $\Sigma^{1}(\mathbf{k })$ is inverse to the dependence of $\Sigma^{3}(\mathbf{k })$. Even more, the lowest-expansion-term coefficient for $\Sigma^{2}(\mathbf{k })$ is independent of $a_{\mathcal{K}}$, as it is shown in Fig. \ref{fig:Multilayer-Self-Energies-Taylor}. 
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.6]{SelfEnergyPlot123.pdf}
+\caption{Hartree-Fock self-energy $\Sigma^{m}(\mathbf{k})$ for monolayer ($m=1$, red), bilayer ($m=2$, green) and trilayer ($m=3$, blue) graphene. The dashing of the plots represent the value of the spreading parameter: $a_{\mathcal{K}}=1$ (dotted), $a_{\mathcal{K}}$ (dashed), and $a_{\mathcal{K}}=3$ (solid), while the horizontal black lines represent the asymptotic limit $\Sigma^{m}(\infty)$ the three values of $a_{\mathcal{K}}$. The little rectangle at the origin is zoomed in Fig. \ref{fig:Multilayer-Self-Energies-Taylor}.}
+\label{fig:Multilayer-Self-Energies-Coulomb}
+
+\end{figure}
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.6]{SelfEnergyPlot123Taylor.pdf}
+\caption{Low-momentum limit for $\Sigma^{m}(\mathbf{k})$ in monolayer, bilayer and trilayer graphene. The legends are the same shown in Fig. \ref{fig:Multilayer-Self-Energies} with the additional bolded curves representing the lowest-order expansion terms and labels of $a_{\mathcal{K}}$ to help with the interpretation of the plot. Notice that the low-momentum limit of $\Sigma^{2}(\mathbf{k})$ is independent of $a_{\mathcal{K}}$.}
+\label{fig:Multilayer-Self-Energies-Taylor-Coulomb}
 \end{figure}
 
 \section{Angular momentum channels and parametrization of the radial coordinate}
@@ -1344,8 +1639,6 @@ There are some plots for small $g_{\mathcal{K}}$ with $R=1$ like Fig. \ref{fig:P
 
 The main differences between $\ell=0$ and $\ell=2$ channels root on the relative size of their imaginary eigenvalues, being smaller for the latter channel, almost a half of those ones for the former channel. On the other hand, the channels show expected behaviors like the increasing of $\mathrm{Im}[E(k_{\mathrm{min}})]$ for larger $g_{\mathcal{K}}$, i.e., stronger interactions, and the suppression for larger $a_{\mathcal{K}}$, that is, a wider spreading of the potential, turning out in a weaker interaction and consequently, smaller values for $\mathrm{Im}[E(k_{\mathrm{min}})]$.
 
-The infinite size limits for $\mathrm{Im}[E(k_{\mathrm{min}}\rightarrow 0)]$ are summarized in the Fig. \ref{fig:PlotReport} using the same color code and legends of Figs. \ref{fig:PlotReportL0} and \ref{fig:PlotReportL2} and the infinite size limits for the tangent discretization in Eq. \eqref{eq:Discretization-tangents} with $R=2$. 
-
 \begin{figure}
 \centering
 %\includegraphics[scale=0.6]{./PlotReport/PlotReportPow}PlotReportPowR1L0
@@ -1354,9 +1647,615 @@ The infinite size limits for $\mathrm{Im}[E(k_{\mathrm{min}}\rightarrow 0)]$ are
 \label{fig:PlotReport}
 \end{figure}
 
-\section{Lorem ipsum}
+The infinite size limits for $\mathrm{Im}[E(k_{\mathrm{min}}\rightarrow 0)]$, from now on denoted as $\mathrm{Im}[E^{\ell}](a_{\mathcal{K}},g_{\mathcal{K}})$, are obtained using the dataset found with the tangent discretization in Eq. \eqref{eq:Discretization-tangents} with $R=3$ and least-squares on the Ansatz 
+\begin{equation}
+\label{eq:Zero-Ansatz}
+\begin{split}
+\mathrm{Im}[E^{\ell}]&(a_{\mathcal{K}},g_{\mathcal{K}},N) = \\ 
+&\mathrm{Im}[E^{\ell}](a_{\mathcal{K}},g_{\mathcal{K}}) + \frac{\Delta\mathrm{Im}[E^{\ell}](a_{\mathcal{K}},g_{\mathcal{K}})}{N}.
+\end{split}
+\end{equation}
+The results are listed in the tables \ref{tab:Inf-size-points-L0} and \ref{tab:Inf-size-points-L2} for the channels $\ell=0$ and $\ell=2$, respectively, and are summarized in the Fig. \ref{fig:PlotReport} for large coupling $g_{\mathcal{K}}\geq 1$.
+
+\subsection{Ansatz}
+\begin{table*}
+\centering 
+\begin{tabular}{cccccccc}
+&&
+\multicolumn{2}{c}{$\ell=0$} &&
+\multicolumn{2}{c}{$\ell=2$}\\	\hline	\hline 
+$a_{\mathcal{K}}$	&&	
+$C_{0}$	&	$G_{0}$ &&&
+$C_{2}$	&	$G_{2}$	\\	\hline	\hline 
+1	&&	
+$(2.805\pm 0.020)\times 10^{-1}$	&
+$ 4.020\pm 0.003$ &&&
+$(2.619\pm 0.004)\times 10^{-1}$	&
+$ 8.042\pm 0.001$\\
+2	&&	
+$(7.116\pm 0.062)\times 10^{-2}$	&
+$ 4.028\pm 0.004$ &&&
+$(6.697\pm 0.073)\times 10^{-2}$	&
+$ 8.063\pm 0.008$\\
+3	&&	
+$(3.158\pm 0.014)\times 10^{-2}$	&
+$ 4.027\pm 0.002$ &&&
+$(2.967\pm 0.019)\times 10^{-2}$	&
+$ 8.062\pm 0.005$\\
+5	&&	
+$(1.113\pm 0.013)\times 10^{-2}$	&
+$ 4.024\pm 0.004$ &&&
+$(1.078\pm 0.008)\times 10^{-2}$	&
+$ 8.073\pm 0.005$\\
+7	&&	
+$(5.862\pm 0.058)\times 10^{-3}$	&
+$ 4.035\pm 0.004$ &&&
+$(5.548\pm 0.101)\times 10^{-3}$	&
+$ 8.082\pm 0.014$\\
+10	&&	
+$(2.917\pm 0.040)\times 10^{-3}$	&
+$ 4.044\pm 0.006$ &&&
+$(2.783\pm 0.056)\times 10^{-3}$	&
+$ 8.106\pm 0.002$
+\end{tabular}
+\caption{Fitting of parameters $C_{0}$ and $G_{0}$ depending on $a_{\mathcal{K}}$ to the first Ansatz in Eq. \eqref{eq:First-Ansatz}. }
+\label{tab:First-Ansatz}
+\end{table*}
+
+The first Ansatz proposed by Inti consisted in the following function: 
+\begin{equation}
+\label{eq:First-Ansatz}
+\mathrm{Im}[E^{\ell}](a_{\mathcal{K}},g_{\mathcal{K}}) = C_{\ell}(a_{\mathcal{K}})
+e^{-G_{\ell}(a_{\mathcal{K}})/g_{\mathcal{K}}},
+\end{equation}
+where $G_{\ell}(a_{\mathcal{K}})$ and $C_{\ell}(a_{\mathcal{K}})$ are parameters to be found for each set of points labelled with $a_{\mathcal{K}}$. The points used for the fitting are the infinite-size limits $\mathrm{Im}[E^{\ell}](a_{\mathcal{K}},g_{\mathcal{K}})$ listed in the tables \ref{tab:Inf-size-points-L0} and \ref{tab:Inf-size-points-L2}. The table \ref{tab:First-Ansatz} shows the results of the fitting of the Eq. \eqref{eq:First-Ansatz} using non-linear least-squares (NLLS), and are summarized in the Fig. \ref{fig:First-Ansatz}. 
+
+\begin{figure}
+\centering
+%\includegraphics[scale=0.6]{./PlotReport/PlotReportPow}PlotReportPowR1L0
+\includegraphics[scale=0.6]{./PlotReport/FirstAnsatz}
+\caption{Infinite-size limits $\mathrm{Im}[E^{\ell}](a_{\mathcal{K}},g_{\mathcal{K}})$ vs. $1/g_{\mathcal{K}}$ compared to the fitted Ansatz shown in Eq. \eqref{eq:First-Ansatz}. The points used in the interpolation are highlighed with black stars. Notice the discrepancy at strong coupling $g_{\mathcal{K}}\geq 1$.}
+\label{fig:First-Ansatz}
+\end{figure}
+
+In order to improve the first Ansatz, the two parameters $G_{\ell}(a_{\mathcal{K}})$ and $C_{\ell}(a_{\mathcal{K}})$ were fitted by a second NLLS procedure on two Ans\"{a}tze. The first one for $G_{\ell}(a_{\mathcal{K}})$ given by
+\begin{equation}
+G_{\ell}(a_{\mathcal{K}}) = G_{\ell} + a_{\mathcal{K}}\Delta G_{\ell}
+\end{equation}
+yielding the parameters
+\begin{equation}
+\label{tab:Second-Ansatz-G0-L0}
+\begin{split}
+G_{0}  &= 4.020\pm 0.002,	\\
+\Delta G_{0} &= (2.110\pm 0.645)\times 10^{-3},
+\end{split}
+\end{equation}
+in the channel $\ell=0$, and 
+\begin{equation}
+\label{tab:Second-Ansatz-G0-L2}
+\begin{split}
+G_{2}  &= 8.034\pm 0.002,	\\
+\Delta G_{2} &= (7.782\pm 0.839)\times 10^{-3},
+\end{split}
+\end{equation}
+in the channel $\ell=2$. Since the slope of the fittings $\Delta G_{\ell}$ are three orders of magnitude smaller than the intercept and $a_{\mathcal{K}}\sim 1$, we can assume that $G_{\ell}$ is constant respect to $a_{\mathcal{K}}$ (see Fig. \ref{fig:Second-Ansatz}(b)). Meanwhile the Ansatz for $C_{\ell}(a_{\mathcal{K}})$ is a power law 
+\begin{equation}
+\label{eq:Second-Ansatz}
+C_{\ell}(a_{\mathcal{K}})= \left(\frac{A_{\ell}}{a_{\mathcal{K}}} \right)^{\alpha_{\ell}},
+\end{equation}
+whose parameters found are 
+\begin{equation}
+\label{tab:Second-Ansatz-L0}
+\begin{split}
+A_{0}  &= (5.282\pm 0.029)\times 10^{-1},	\\
+\alpha_{0} &=  1.990\pm 0.006,
+\end{split}
+\end{equation}
+in the channel $\ell=0$, and 
+\begin{equation}
+\label{tab:Second-Ansatz-L2}
+\begin{split}
+A_{2}  &= (5.084\pm 0.005)\times 10^{-1},	\\
+\alpha_{2} &= 1.981\pm 0.002,
+\end{split}
+\end{equation}
+in the channel $\ell=2$. The small errors of the parameters after the fitting suggest us that the power-law is a good Ansatz to describe $C_{\ell}(a_{\mathcal{K}})$ (see Fig. \ref{fig:Second-Ansatz}(a)).
+
+\begin{figure}
+\centering
+%\includegraphics[scale=0.6]{./PlotReport/PlotReportPow}PlotReportPowR1L0
+\includegraphics[scale=0.70]{./PlotReport/PlotC0G0.pdf}
+\caption{Data points shown in the Tab. \ref{tab:First-Ansatz} and fitted Ans\"{a}tze. Left: $C_{0}$ vs. $a_{\mathcal{K}}$: the power law in Eq. \eqref{eq:Second-Ansatz} was fitted with the parameters in Eqs. \eqref{tab:Second-Ansatz-L0} and \eqref{tab:Second-Ansatz-L2} for $\ell=0$ and $\ell=2$. Right: $G_{0}$ vs. $a_{\mathcal{K}}$: the linear regression yielded the parameters in Eq. \eqref{tab:Second-Ansatz-G0-L0} and \eqref{tab:Second-Ansatz-G0-L2} (the data for $\ell=2$ was divided by 2 to easen the interpretation of the plot). Both figures include the error bars as well as the regions allowed by the standard errors of the fittings.}
+\label{fig:Second-Ansatz}
+\end{figure}
+
+\begin{figure*}
+\centering
+%\includegraphics[scale=0.6]{./PlotReport/PlotReportPow}PlotReportPowR1L0
+\includegraphics[scale=0.8]{./PlotReport/ThirdAnsatz.pdf}
+\caption{Infinite-size limits $\mathrm{Im}[E^{\ell}](a_{\mathcal{K}},g_{\mathcal{K}})$ vs. the inverse of the coupling constant $1/g_{\mathcal{K}}$ with the fitted Ansatz shown in Eq. \eqref{eq:First-Ansatz}. The points used in the interpolation are highlighed with black stars. Notice the discrepancy at strong coupling $g_{\mathcal{K}}\geq 1$.}
+\label{fig:Third-Ansatz}
+\end{figure*}
+
+Therefore, Inti's Ansatz was modified to include the new power law with $\alpha=2$ as follows:
+\begin{equation}
+\label{eq:Third-Ansatz}
+\mathrm{Im}[E^{\ell}](a_{\mathcal{K}},g_{\mathcal{K}}) = 
+\left(\frac{A_{\ell}}{a_{\mathcal{K}}} \right)^{2}
+e^{-G_{\ell}/g_{\mathcal{K}}},
+\end{equation}
+and then fitted using two-dimensional NLLS on the plane $(a_{\mathcal{K}}, g_{\mathcal{K}})$ yielding that
+\begin{equation}
+\begin{split}
+A_{0} &= (5.306\pm 0.015)\times 10^{-1},	\\
+G_{0} &= 4.024\pm 0.002,
+\end{split}
+\end{equation}
+in the channel $\ell=0$, and 
+\begin{equation}
+\begin{split}
+A_{2} &= (5.135\pm 0.018)\times 10^{-1},	\\
+G_{2} &= 8.050\pm 0.005,
+\end{split}
+\end{equation}
+in the channel $\ell=2$. The fitted data as well as the Ansatz of Eq. \eqref{eq:Third-Ansatz} are shown in the Fig. \ref{fig:Third-Ansatz} including projections onto the planes $\mathrm{Im}[E^{\ell}](a_{\mathcal{K}},g_{\mathcal{K}})$  vs. $1/g_{\mathcal{K}}$ and $\mathrm{Im}[E^{\ell}](a_{\mathcal{K}},g_{\mathcal{K}})$ vs. $a_{\mathcal{K}}$. 
+
+Lastly, the fitting also suggests a relation in te $G_{\ell}$ parameters, corresponding to the power of the exponential in Eq. \eqref{eq:Third-Ansatz}, that $G_{2}=2G_{0}$, which is consistent to the standard errors reported above. A similar conclusion may not be done on $A_{\ell}$ since the standard errors as well as the central values do not allow such overlapping. 
+
+
+
+
+
+\section{Inti's general scheme}
+The system without interactions is described by the following 2D Hamiltonian
+\begin{equation}
+\begin{split}
+H_{\mathrm{kin}} &= \!
+\int \! d^{2}r 
+\Psi_{\mathbf{r}}^{\textcolor{black}{\dagger}}
+\left( 
+\boldsymbol{\sigma}\cdot \frac{\boldsymbol{\nabla}}{i}
+\right)
+\Psi_{\mathbf{r}}^{\textcolor{white}{\dagger}}
+=
+\sum_{\mathbf{k}} 
+\Psi_{\mathbf{k}}^{\textcolor{black}{\dagger}}
+\left(
+\boldsymbol{\sigma}\cdot \mathbf{k}
+\right)
+\Psi_{\mathbf{k}}^{\textcolor{white}{\dagger}}
+\end{split}
+\end{equation}
+where $\Psi_{\mathbf{k}}$ is the annihilation operator of the fundamental representation of $\mathrm{SU(2)}$
+\begin{equation}
+\Psi_{\mathbf{k}} = 
+\begin{pmatrix}
+\psi_{\mathbf{k}\uparrow } \\
+\psi_{\mathbf{k}\downarrow }
+\end{pmatrix},
+\end{equation}
+and the occupied state is given by the action of the creation operator on the ground state
+\begin{equation}
+\left| 
+\mathbf{k}\sigma 
+\right\rangle = 
+\psi_{\mathbf{k}\sigma}^{\textcolor{black}{\dagger}}
+\left| 0 \right\rangle
+\end{equation}
+whose time evolution is determined by the Hamiltonian
+\begin{equation}
+i\frac{\partial}{\partial t}
+\left| 
+\mathbf{k}\sigma 
+\right\rangle = 
+H \left| 
+\mathbf{k}\sigma 
+\right\rangle 
+\end{equation}
+The Lagrangian associated to the Hamiltonian is given by
+\begin{equation}
+L = i
+\left\langle 
+\mathbf{k}\sigma \!\!
+^{\textcolor{white}{\dagger}}_{\textcolor{white}{\dagger}}
+\right|
+\frac{\partial}{\partial t} 
+\left| 
+^{\textcolor{white}{\dagger}}_{\textcolor{white}{\dagger}}\!\!
+\mathbf{k}\sigma 
+\right\rangle -
+\left\langle 
+\mathbf{k}\sigma \!\!
+^{\textcolor{white}{\dagger}}_{\textcolor{white}{\dagger}}
+\right|
+H
+\left| 
+^{\textcolor{white}{\dagger}}_{\textcolor{white}{\dagger}}\!\!
+\mathbf{k}\sigma 
+\right\rangle 
+\end{equation}
+
+The following operator rotates the spins at every given momentum $\mathbf{k}$ around the axis $\hat{\boldsymbol{\Omega}}$ by an angle $|\boldsymbol{\Omega}|$:
+\begin{equation}
+\begin{split}
+U(\boldsymbol{\Omega}(\mathbf{k})) &= 
+\exp \left[
+\frac{i}{2} \sum_{\mathbf{k}}
+\boldsymbol{\Omega}(\mathbf{k}) \cdot 
+\mathbf{S}_{\mathbf{k}}
+\right] \\ &= 
+\exp \left[
+\frac{i}{2} \sum_{\mathbf{k}}
+\boldsymbol{\Omega}(\mathbf{k}) \cdot 
+\left(
+\Psi_{\mathbf{k}}^{\textcolor{black}{\dagger}}
+\boldsymbol{\sigma}
+\Psi_{\mathbf{k}}^{\textcolor{white}{\dagger}}
+\right)
+\right]
+\end{split}
+\end{equation}
+where $\mathbf{S}_{\mathbf{k}} = \Psi_{\mathbf{k}}^{\textcolor{black}{\dagger}}
+\boldsymbol{\sigma}
+\Psi_{\mathbf{k}}^{\textcolor{white}{\dagger}}$ is the spin operator. 
+Consider the case of a single spin $\sfrac{1}{2}$
+\begin{equation}
+\begin{split}
+U(\boldsymbol{\Omega}(\mathbf{k})) &= 
+\exp \left[
+\frac{i}{2} 
+\boldsymbol{\Omega} \cdot 
+\left(
+\Psi^{\textcolor{black}{\dagger}}
+\boldsymbol{\sigma}
+\Psi%^{\textcolor{white}{\dagger}}
+\right)
+\right]
+\end{split}
+\end{equation}
+The action of $U(\boldsymbol{\Omega})$ on $\sigma_{i}$ is obtained using the well-known Backer-Campbell-Haussdorf formula (BCH):
+\begin{equation}
+\begin{split}
+&U^{\dagger}(\boldsymbol{\Omega})
+\sigma_{i}
+U(\boldsymbol{\Omega}) \approx \\ &\approx 
+\sigma_{i} - \frac{i}{2}\Omega^{j}
+\left[ \sigma_{j},\sigma_{i} \right]
++ \left(\frac{-i}{2}\right)^{2}
+\frac{\Omega^{j}\Omega^{k}}{2!}
+\left[ \sigma_{j},\left[ \sigma_{k},\sigma_{i} \right] \right] \\ &= 
+\sigma_{i} - \frac{i}{2}\Omega^{j}
+2i\epsilon_{ji}^{\;\;\,k}\sigma_{k}
++ \left(\frac{-i}{2}\right)^{2}
+\frac{\Omega^{j}\Omega^{k}}{2!}
+\left[ \sigma_{j},2i\epsilon_{ki}^{\;\;\;l}\sigma_{l} \right] \\ &= 
+\sigma_{i} + \Omega^{j}
+\epsilon_{ji}^{\;\;\,k}\sigma_{k}
++ 
+\frac{\Omega^{j}\Omega^{k}}{2!}
+\epsilon_{ki}^{\;\;\;l}\epsilon_{jl}^{\;\;\;m}\sigma_{m},
+\end{split}
+\end{equation}
+which in vector notation can be expressed as
+\begin{equation}
+\begin{split}
+&U^{\dagger}(\boldsymbol{\Omega})
+\boldsymbol{\sigma}
+U(\boldsymbol{\Omega}) =\\&= 
+\boldsymbol{\sigma} + 
+\boldsymbol{\sigma} \times \boldsymbol{\Omega} +
+\frac{1}{2!}
+(\boldsymbol{\sigma} \times \boldsymbol{\Omega})
+\times \boldsymbol{\Omega} +  ...
+\\ &= \sum_{n=0}^{\infty} \frac{1}{n!}
+\left(\right. \! ...\left(\right. \!
+\boldsymbol{\sigma} \!
+\underbrace{
+\times \boldsymbol{\Omega}
+\! \left.\right) ... \! \left.\right)
+\times \boldsymbol{\Omega} }_{n\mathrm{\,times}} 
+\end{split}
+\end{equation}
+
+The spin-up state is defined as $\mathbf{s}\left|\uparrow\right\rangle=\hat{\mathbf{z}}\left|\uparrow\right\rangle$ while the spin-down is $\mathbf{s}\left|\downarrow\right\rangle=-\hat{\mathbf{z}}\left|\downarrow\right\rangle$. Then, the matrix element $(\uparrow\uparrow)$ of $\boldsymbol{\sigma}$ is given by
+\begin{equation}
+\left\langle\uparrow\right|
+\sigma_{i}
+\left|\uparrow\right\rangle = 
+\mathrm{Tr}\left( 
+\frac{1+\mathbf{z}\cdot\boldsymbol{\sigma}}{2}\sigma_{i}\right) = 
+\frac{z^{j}}{2}\mathrm{Tr}\left(\sigma_{j}\sigma_{i}\right) = 
+z_{i},
+\end{equation}
+and similarly $\left\langle\downarrow\right|\sigma_{i}\left|\downarrow\right\rangle = -z_{i}$
+\begin{equation}
+\begin{split}
+&\left\langle\uparrow\right|
+U^{\dagger}(\boldsymbol{\Omega})
+\boldsymbol{\sigma}
+U(\boldsymbol{\Omega})
+\left|\uparrow\right\rangle = 
+\sum_{n=0}^{\infty} \frac{1}{n!}
+\left(\right. \! ...\left(\right. \!
+\mathbf{z} \!
+\underbrace{
+\times \boldsymbol{\Omega}
+\! \left.\right) ... \! \left.\right)
+\times \boldsymbol{\Omega} }_{n\mathrm{\,times}} 
+\end{split}
+\end{equation}
+
+The Berry phase part 
+\begin{equation}
+\begin{split}
+&i
+\left\langle
+\uparrow^{\textcolor{white}{\dagger}}_{\textcolor{white}{\dagger}}\!
+\right|
+U^{\dagger}(\boldsymbol{\Omega})
+\frac{d}{dt}
+U(\boldsymbol{\Omega})
+\left|\,
+\uparrow^{\textcolor{white}{\dagger}}_{\textcolor{white}{\dagger}}\!\!
+\right\rangle = ?
+\end{split}
+\end{equation}
+can be obtained with a modified BCH formula 
+\begin{equation}
+\begin{split}
+&U^{\dagger}(\boldsymbol{\Omega})
+\frac{d}{dt}
+U(\boldsymbol{\Omega}) \approx \\&
+\approx \frac{i}{2}
+\frac{d\boldsymbol{\Omega}}{dt}\cdot \boldsymbol{\sigma} + 
+\frac{1}{2!}
+\left[ 
+\frac{i}{2}\frac{d\boldsymbol{\Omega}}{dt}
+\cdot \boldsymbol{\sigma} , 
+\frac{i}{2}\boldsymbol{\Omega}
+\cdot \boldsymbol{\sigma} \right] \\&=
+\frac{i}{2}
+\frac{d\Omega^{i}}{dt}\sigma_{i} + 
+\frac{1}{2!}
+\left( \frac{i}{2} \right)^{2}
+\frac{d\Omega^{i}}{dt} \Omega^{j}
+\left[ \sigma_{i}, \sigma_{j} \right] \\&=
+\frac{i}{2}
+\frac{d\Omega^{i}}{dt}\sigma_{i} + 
+\frac{1}{2!}
+\left( \frac{i}{2} \right)^{2}
+\frac{d\Omega^{i}}{dt} \Omega^{j}
+2i\epsilon_{ij}^{\;\;\,k}\sigma_{k} \\&=
+\frac{i}{2}
+\frac{d\Omega^{i}}{dt}\sigma_{i} - 
+\frac{1}{2!}
+\left( \frac{i}{2} \right)
+\frac{d\Omega^{i}}{dt} \Omega^{j}
+\epsilon_{ij}^{\;\;\,k}\sigma_{k}
+\end{split}
+\end{equation}
+which 
+\begin{equation}
+\begin{split}
+&i
+U^{\dagger}(\boldsymbol{\Omega})
+\frac{d}{dt}
+U(\boldsymbol{\Omega}) = \\ &= 
+-
+\left(\! \frac{1}{2} \!\right)\!
+\frac{d\boldsymbol{\Omega}}{dt}\!\cdot\!\boldsymbol{\sigma}
++
+\left(\! \frac{1}{2} \!\right)\!
+\frac{1}{2!}\!
+\left(
+\frac{d\boldsymbol{\Omega}}{dt}
+\times 
+\boldsymbol{\Omega}
+\right)
+\!\cdot\!
+\boldsymbol{\sigma}
+ + ...
+\\ &= 
+\frac{1}{2}	
+\sum_{n=1}^{\infty} \frac{(-1)^{n}}{n!}\left(
+\left(\textcolor{white}{\frac{\boldsymbol{\Omega}}{d}
+\!\!\!\!\!\!\!}\right. 
+\! ...
+\left(\textcolor{white}{\frac{\boldsymbol{\Omega}}{d}
+\!\!\!\!\!\!\!}\right.  \!
+\frac{d\boldsymbol{\Omega}}{dt} \!
+\underbrace{
+\times \boldsymbol{\Omega}
+\! 
+\left.\textcolor{white}{\frac{\boldsymbol{\Omega}}{d}
+\!\!\!\!\!\!\!}\right)  ... \! 
+\left.\textcolor{white}{\frac{\boldsymbol{\Omega}}{d}
+\!\!\!\!\!\!\!}\right) 
+\times \boldsymbol{\Omega} }_{n-1\mathrm{\,times}} 
+\right)
+\!\cdot\!
+\boldsymbol{\sigma}
+\end{split}
+\end{equation}
+
+The semiclassical Lagrangian is therefore expressed as follows:
+\begin{eqnarray}
+&&\mathcal{L}[\boldsymbol{\Omega}] = i
+\left\langle
+\!
+\uparrow^{\textcolor{white}{\dagger}}_{\textcolor{white}{\dagger}}\!
+\!
+\right|
+\!
+U^{\dagger}(\boldsymbol{\Omega})
+\frac{d}{dt}
+U(\boldsymbol{\Omega})
+\!
+\left|
+\uparrow^{\textcolor{white}{\dagger}}_{\textcolor{white}{\dagger}}\!\!\!
+\right\rangle 
+-
+\left\langle
+\!
+\uparrow^{\textcolor{white}{\dagger}}_{\textcolor{white}{\dagger}}\!
+\!
+\right|
+\!
+U^{\dagger}(\boldsymbol{\Omega})
+\boldsymbol{\sigma}\! \cdot \! \mathbf{k}
+U(\boldsymbol{\Omega})
+\!
+\left|
+\uparrow^{\textcolor{white}{\dagger}}_{\textcolor{white}{\dagger}}\!
+\!\!
+\right\rangle
+\nonumber 
+\\ &&= 
+-
+\frac{1}{2} 
+\frac{d\boldsymbol{\Omega}}{dt}
+\!
+\cdot
+\!
+\mathbf{z}
++
+\frac{1}{4}\!
+\left(
+\frac{d\boldsymbol{\Omega}}{dt}
+\times 
+\boldsymbol{\Omega}
+\right)
+\!\cdot\!
+\mathbf{z} 
++
+\boldsymbol{\sigma} + 
+\boldsymbol{\sigma} \times \boldsymbol{\Omega} +
+\frac{1}{2!}
+(\boldsymbol{\sigma} \times \boldsymbol{\Omega})
+\times \boldsymbol{\Omega} +  
+\end{eqnarray}
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque eu pharetra ligula, in scelerisque risus. Mauris convallis neque elit, at tincidunt lectus venenatis et. Donec ultricies eros nec nisl posuere, vitae scelerisque enim fringilla. Maecenas eget odio dapibus, egestas ante a, tempor neque. Nullam in nisi varius, laoreet urna sit amet, hendrerit erat. Maecenas id ligula posuere, tincidunt nisi a, scelerisque libero. Quisque maximus quis sem eleifend fermentum. Ut pharetra dui quis pharetra consectetur. Pellentesque commodo lacinia urna. Aliquam nibh nulla, facilisis id cursus eget, tristique non neque.
+
+Proin risus sem, viverra vitae ornare ut, imperdiet a erat. Ut aliquet lorem sit amet elit efficitur auctor. Praesent consequat magna a neque feugiat, eget facilisis sem eleifend. Proin id posuere est, nec sodales nibh. Maecenas lacus felis, fringilla eu ligula at, gravida feugiat orci. In id faucibus massa. Phasellus iaculis iaculis mauris, vitae congue orci hendrerit eu. Proin interdum nisl at justo scelerisque ullamcorper. Maecenas tincidunt lectus quis gravida faucibus. Vestibulum tempor fermentum egestas.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque eu pharetra ligula, in scelerisque risus. Mauris convallis neque elit, at tincidunt lectus venenatis et. Donec ultricies eros nec nisl posuere, vitae scelerisque enim fringilla. Maecenas eget odio dapibus, egestas ante a, tempor neque. Nullam in nisi varius, laoreet urna sit amet, hendrerit erat. Maecenas id ligula posuere, tincidunt nisi a, scelerisque libero. Quisque maximus quis sem eleifend fermentum. Ut pharetra dui quis pharetra consectetur. Pellentesque commodo lacinia urna. Aliquam nibh nulla, facilisis id cursus eget, tristique non neque.
+
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque eu pharetra ligula, in scelerisque risus. Mauris convallis neque elit, at tincidunt lectus venenatis et. Donec ultricies eros nec nisl posuere, vitae scelerisque enim fringilla. Maecenas eget odio dapibus, egestas ante a, tempor neque. Nullam in nisi varius, laoreet urna sit amet, hendrerit erat. Maecenas id ligula posuere, tincidunt nisi a, scelerisque libero. Quisque maximus quis sem eleifend fermentum. Ut pharetra dui quis pharetra consectetur. Pellentesque commodo lacinia urna. Aliquam nibh nulla, facilisis id cursus eget, tristique non neque.
+
+
+\appendix
+\section{Infinite limits}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque eu pharetra ligula, in scelerisque risus. Mauris convallis neque elit, at tincidunt lectus venenatis et. Donec ultricies eros nec nisl posuere, vitae scelerisque enim fringilla. Maecenas eget odio dapibus, egestas ante a, tempor neque. Nullam in nisi varius, laoreet urna sit amet, hendrerit erat. Maecenas id ligula posuere, tincidunt nisi a, scelerisque libero. Quisque maximus quis sem eleifend fermentum. Ut pharetra dui quis pharetra consectetur. Pellentesque commodo lacinia urna. Aliquam nibh nulla, facilisis id cursus eget, tristique non neque.
+
+
+\begin{figure}
+\centering 
+\includegraphics[scale=0.6]{./PlotReport/PlotsSizesL0}
+\caption{Extrapolation of the imaginary parts in the channel $\ell=0$ as the linear regresion given in Eq. \eqref{eq:Zero-Ansatz} for five different system sizes $N=$ 100, 200, 300, 400 and 500. The infinite-size limits are listed with their standard errors in Tab. \ref{tab:Inf-size-points-L0}. }
+\end{figure}
+
+\begin{table}
+\begin{tabular}{ccc}
+%\multicolumn{3}{c}{$\ell=0$}	\\ \hline \hline 
+$a_{\mathcal{K}}$	&	$1/g_{\mathcal{K}}$	&	
+$\mathrm{Im}[E^{(0)}](a_{\mathcal{K}},g_{\mathcal{K}})$	\\ \hline \hline 
+$ 1 $ & $ 4.      $ & $ (2.92152\pm0.00789)\times 10^{-8}$ \\
+$ 1 $ & $ 3.33333 $ & $ (4.16824\pm0.03815)\times 10^{-7}$ \\
+$ 1 $ & $ 2.85714 $ & $ (2.78958\pm0.04014)\times 10^{-6}$ \\
+$ 1 $ & $ 2.5     $ & $ (1.20918\pm0.00247)\times 10^{-5}$ \\
+$ 1 $ & $ 2.22222 $ & $ (3.67784\pm0.13941)\times 10^{-6}$ \\
+$ 1 $ & $ 2.      $ & $ (9.05161\pm0.11104)\times 10^{-6}$ \\ \hline \hline 
+$ 2 $ & $ 4.      $ & $ (7.13223\pm0.05980)\times 10^{-9}$ \\
+$ 2 $ & $ 3.33333 $ & $ (1.02927\pm0.01370)\times 10^{-7}$ \\
+$ 2 $ & $ 2.85714 $ & $ (7.17900\pm0.02154)\times 10^{-7}$ \\
+$ 2 $ & $ 2.5     $ & $ (2.99848\pm0.01200)\times 10^{-6}$ \\
+$ 2 $ & $ 2.22222 $ & $ (9.23142\pm0.01736)\times 10^{-6}$ \\
+$ 2 $ & $ 2.      $ & $ (2.25623\pm0.04265)\times 10^{-6}$ \\ \hline \hline 
+$ 3 $ & $ 4.      $ & $ (3.15043\pm0.03078)\times 10^{-9}$ \\
+$ 3 $ & $ 3.33333 $ & $ (4.68115\pm0.02323)\times 10^{-8}$ \\
+$ 3 $ & $ 2.85714 $ & $ (3.18026\pm0.01185)\times 10^{-7}$ \\
+$ 3 $ & $ 2.5     $ & $ (1.33870\pm0.00375)\times 10^{-6}$ \\
+$ 3 $ & $ 2.22222 $ & $ (4.09552\pm0.00318)\times 10^{-6}$ \\
+$ 3 $ & $ 2.      $ & $ (1.00257\pm0.01928)\times 10^{-6}$ \\ \hline \hline 
+$ 5 $ & $ 4.      $ & $ (1.13815\pm0.00536)\times 10^{-9}$ \\
+$ 5 $ & $ 3.33333 $ & $ (1.67524\pm0.00993)\times 10^{-8}$ \\
+$ 5 $ & $ 2.85714 $ & $ (1.09754\pm0.01789)\times 10^{-7}$ \\
+$ 5 $ & $ 2.5     $ & $ (4.67946\pm0.04882)\times 10^{-7}$ \\
+$ 5 $ & $ 2.22222 $ & $ (1.45688\pm0.00646)\times 10^{-6}$ \\
+$ 5 $ & $ 2.      $ & $ (3.56892\pm0.01652)\times 10^{-6}$ \\ \hline \hline 
+$ 7 $ & $ 4.      $ & $ (5.48481\pm0.15749)\times 10^{-10}$ \\
+$ 7 $ & $ 3.33333 $ & $ (8.46152\pm0.07365)\times 10^{-9}$ \\
+$ 7 $ & $ 2.85714 $ & $ (5.79094\pm0.03126)\times 10^{-8}$ \\
+$ 7 $ & $ 2.5     $ & $ (2.44125\pm0.01064)\times 10^{-7}$ \\
+$ 7 $ & $ 2.22222 $ & $ (7.47993\pm0.02632)\times 10^{-7}$ \\
+$ 7 $ & $ 2.      $ & $ (1.83301\pm0.00538)\times 10^{-6}$ \\ \hline \hline 
+$10 $ & $ 4.      $ & $ (2.59171\pm0.10806)\times 10^{-10}$ \\
+$10 $ & $ 3.33333 $ & $ (4.06583\pm0.05989)\times 10^{-9}$ \\
+$10 $ & $ 2.85714 $ & $ (2.81035\pm0.02282)\times 10^{-8}$ \\
+$10 $ & $ 2.5     $ & $ (1.19031\pm0.00658)\times 10^{-7}$ \\
+$10 $ & $ 2.22222 $ & $ (3.64543\pm0.00559)\times 10^{-7}$ \\
+$10 $ & $ 2.      $ & $ (8.95646\pm0.03185)\times 10^{-7}$ \\ \hline \hline  
+\end{tabular}
+\caption{Infinite-size limits $\mathrm{Im}[E^{(0)}](a_{\mathcal{K}},g_{\mathcal{K}})$ of the points on the plane $a_{\mathcal{K}}$ vs. $1/g_{\mathcal{K}}$ extrapolated using least-squares on the Eq. \eqref{eq:Zero-Ansatz} for the channel $\ell=0$.}
+\label{tab:Inf-size-points-L0}
+\end{table}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque eu pharetra ligula, in scelerisque risus. Mauris convallis neque elit, at tincidunt lectus venenatis et. Donec ultricies eros nec nisl posuere, vitae scelerisque enim fringilla. Maecenas eget odio dapibus, egestas ante a, tempor neque. Nullam in nisi varius, laoreet urna sit amet, hendrerit erat. Maecenas id ligula posuere, tincidunt nisi a, scelerisque libero. Quisque maximus quis sem eleifend fermentum. Ut pharetra dui quis pharetra consectetur. Pellentesque commodo lacinia urna. Aliquam nibh nulla, facilisis id cursus eget, tristique non neque.
+
+
+
+
+
+\begin{figure}
+\centering 
+\includegraphics[scale=0.6]{./PlotReport/PlotsSizesL2}
+\caption{Extrapolation of the imaginary parts in the channel $\ell=2$ as the linear regresion given in Eq. \eqref{eq:Zero-Ansatz} for five different system sizes $N=$ 100, 200, 300, 400 and 500. The infinite-size limits are listed with their standard errors in Tab. \ref{tab:Inf-size-points-L2}. }
+\end{figure}
+
+
+\begin{table}
+\begin{tabular}{ccc}
+\multicolumn{3}{c}{$\ell=2$}	\\ \hline \hline 
+$a_{\mathcal{K}}$	&	$1/g_{\mathcal{K}}$	&	
+$\mathrm{Im}[E^{(2)}](a_{\mathcal{K}},g_{\mathcal{K}})$	\\ \hline \hline 
+    $ 1 $ & $ 2.      $ & $ (2.71270\pm 0.00588)\times 10^{-8} $ \\
+    $ 1 $ & $ 1.66667 $ & $ (3.95448\pm 0.01197)\times 10^{-7} $ \\
+    $ 1 $ & $ 1.42857 $ & $ (2.68217\pm 0.00584)\times 10^{-6} $ \\
+    $ 1 $ & $ 1.25    $ & $ (1.12794\pm 0.00193)\times 10^{-5} $ \\
+    $ 1 $ & $ 1.11111 $ & $ (3.45039\pm 0.00493)\times 10^{-5} $ \\ \hline \hline  
+    $ 2 $ & $ 2.      $ & $ (6.55098\pm 0.05278)\times 10^{-9} $ \\
+    $ 2 $ & $ 1.66667 $ & $ (9.81992\pm 0.04536)\times 10^{-8} $ \\
+    $ 2 $ & $ 1.42857 $ & $ (6.67918\pm 0.02030)\times 10^{-7} $ \\
+    $ 2 $ & $ 1.25    $ & $ (2.81190\pm 0.00656)\times 10^{-6} $ \\
+    $ 2 $ & $ 1.11111 $ & $ (8.60731\pm 0.01642)\times 10^{-6} $ \\ \hline \hline  
+    $ 3 $ & $ 2.      $ & $ (2.92241\pm 0.02954)\times 10^{-9} $ \\
+    $ 3 $ & $ 1.66667 $ & $ (4.34776\pm 0.02244)\times 10^{-8} $ \\
+    $ 3 $ & $ 1.42857 $ & $ (2.95870\pm 0.01117)\times 10^{-7} $ \\
+    $ 3 $ & $ 1.25    $ & $ (1.24681\pm 0.00355)\times 10^{-6} $ \\
+    $ 3 $ & $ 1.11111 $ & $ (3.81851\pm 0.00882)\times 10^{-6} $ \\ \hline \hline  
+    $ 5 $ & $ 2.      $ & $ (1.04595\pm 0.00465)\times 10^{-9} $ \\
+    $ 5 $ & $ 1.66667 $ & $ (1.55836\pm 0.00861)\times 10^{-8} $ \\
+    $ 5 $ & $ 1.42857 $ & $ (1.05890\pm 0.00543)\times 10^{-7} $ \\
+    $ 5 $ & $ 1.25    $ & $ (4.47072\pm 0.01660)\times 10^{-7} $ \\
+    $ 5 $ & $ 1.11111 $ & $ (1.37043\pm 0.00409)\times 10^{-6} $ \\ \hline \hline  
+    $ 7 $ & $ 2.      $ & $ (5.05321\pm 0.15138)\times 10^{-10} $ \\
+    $ 7 $ & $ 1.66667 $ & $ (7.84517\pm 0.07565)\times 10^{-9} $ \\
+    $ 7 $ & $ 1.42857 $ & $ (5.38602\pm 0.02976)\times 10^{-8} $ \\
+    $ 7 $ & $ 1.25    $ & $ (2.27356\pm 0.01000)\times 10^{-7} $ \\
+    $ 7 $ & $ 1.11111 $ & $ (6.97338\pm 0.02489\times 10^{-7} $ \\ \hline \hline  
+    $10 $ & $ 2.      $ & $ (2.42989\pm 0.08010\times 10^{-10} $ \\
+    $10 $ & $ 1.66667 $ & $ (3.78447\pm 0.05330\times 10^{-9} $ \\
+    $10 $ & $ 1.42857 $ & $ (2.61431\pm 0.02132\times 10^{-8} $ \\
+    $10 $ & $ 1.25    $ & $ (1.10834\pm 0.00624\times 10^{-7} $ \\
+    $10 $ & $ 1.11111 $ & $ (3.40468\pm 0.01489\times 10^{-7} $ \\ \hline \hline  
+\end{tabular}
+\caption{Infinite-size limits $\mathrm{Im}[E^{(2)}](a_{\mathcal{K}},g_{\mathcal{K}})$ of the points on the plane $a_{\mathcal{K}}$ vs. $1/g_{\mathcal{K}}$ extrapolated using least-squares on the Eq. \eqref{eq:Zero-Ansatz} for the channel $\ell=2$.}
+\label{tab:Inf-size-points-L2}
+\end{table}
+
 
 Proin risus sem, viverra vitae ornare ut, imperdiet a erat. Ut aliquet lorem sit amet elit efficitur auctor. Praesent consequat magna a neque feugiat, eget facilisis sem eleifend. Proin id posuere est, nec sodales nibh. Maecenas lacus felis, fringilla eu ligula at, gravida feugiat orci. In id faucibus massa. Phasellus iaculis iaculis mauris, vitae congue orci hendrerit eu. Proin interdum nisl at justo scelerisque ullamcorper. Maecenas tincidunt lectus quis gravida faucibus. Vestibulum tempor fermentum egestas.
 
@@ -1365,6 +2264,21 @@ Proin vitae semper dolor. Etiam diam ex, lobortis vitae rutrum sed, tempus at di
 Duis imperdiet massa eu lacus fringilla, et pulvinar eros dapibus. Etiam dictum vulputate tempus. Integer felis dolor, mattis in tincidunt eu, sodales ac orci. Curabitur fermentum aliquam finibus. Praesent non dui nunc. Ut commodo vulputate lorem, nec pretium nisi lacinia vitae. Donec fermentum elementum ex vel mollis. Donec turpis nisi, placerat vel sollicitudin in, bibendum vel ipsum. Aliquam venenatis non nisl ut rutrum. Cras sed est tincidunt elit euismod fermentum et quis nisi. Ut fringilla ligula nisl, sed lobortis nunc laoreet et.
 
 Morbi arcu leo, auctor ut luctus eu, eleifend sed lorem. Sed commodo molestie ligula ut tempor. Aenean posuere vel velit et ullamcorper. Integer consectetur semper arcu non hendrerit. Suspendisse ornare leo vel ornare sollicitudin. Vivamus elementum lacinia turpis quis suscipit. Duis varius aliquam tortor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Morbi a tristique mauris. Quisque pretium, nibh in ornare elementum, neque velit efficitur dui, nec fermentum ipsum risus sit amet magna. Donec elit quam, cursus sed mollis non, aliquam vitae felis.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
